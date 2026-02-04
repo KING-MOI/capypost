@@ -42,3 +42,4 @@
 - edge case observed while testing
 - double-check docs example behavior
 - considered config defaults; parked for now
+- follow up on exit codes
