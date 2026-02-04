@@ -13,3 +13,4 @@
 - follow up on the macOS build
 - double-check the retry path behavior
 - double-check exit codes behavior
+- cache miss observed while testing
