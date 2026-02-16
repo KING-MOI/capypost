@@ -58,3 +58,4 @@
 - double-check cleanup logic behavior
 - follow up on the retry path
 - follow up on cleanup logic
+- considered exit codes; parked for now
