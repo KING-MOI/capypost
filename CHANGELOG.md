@@ -29,3 +29,4 @@
 - follow up on config defaults
 - slow start observed while testing
 - double-check docs example behavior
+- follow up on release checklist
