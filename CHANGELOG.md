@@ -41,3 +41,4 @@
 - double-check config defaults behavior
 - edge case observed while testing
 - double-check docs example behavior
+- considered config defaults; parked for now
