@@ -49,3 +49,4 @@
 - flaky test observed while testing
 - considered the retry path; parked for now
 - considered the macOS build; parked for now
+- considered config defaults; parked for now
