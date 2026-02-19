@@ -27,3 +27,4 @@
 - double-check exit codes behavior
 - follow up on docs example
 - follow up on config defaults
+- slow start observed while testing
