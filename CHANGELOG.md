@@ -8,3 +8,4 @@
 - edge case observed while testing
 - considered link checker; parked for now
 - double-check exit codes behavior
+- cache miss observed while testing
