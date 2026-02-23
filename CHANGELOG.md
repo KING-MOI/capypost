@@ -44,3 +44,4 @@
 - considered config defaults; parked for now
 - follow up on exit codes
 - double-check error messages behavior
+- follow up on ci caching
