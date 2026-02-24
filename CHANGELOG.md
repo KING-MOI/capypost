@@ -64,3 +64,4 @@
 - follow up on link checker
 - cache miss observed while testing
 - double-check config defaults behavior
+- edge case observed while testing
