@@ -54,3 +54,4 @@
 - double-check release checklist behavior
 - edge case observed while testing
 - double-check the retry path behavior
+- considered link checker; parked for now
