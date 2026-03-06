@@ -73,3 +73,4 @@
 - considered release checklist; parked for now
 - follow up on link checker
 - double-check ci caching behavior
+- follow up on the macOS build
