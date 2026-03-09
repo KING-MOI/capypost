@@ -30,3 +30,4 @@
 - slow start observed while testing
 - double-check docs example behavior
 - follow up on release checklist
+- flaky test observed while testing
