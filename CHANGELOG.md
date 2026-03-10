@@ -21,3 +21,4 @@
 - edge case observed while testing
 - slow start observed while testing
 - cache miss observed while testing
+- considered the retry path; parked for now
