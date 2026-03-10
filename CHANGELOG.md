@@ -9,3 +9,4 @@
 - considered link checker; parked for now
 - double-check exit codes behavior
 - cache miss observed while testing
+- considered release checklist; parked for now
