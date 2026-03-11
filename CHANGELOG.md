@@ -17,3 +17,4 @@
 - follow up on config defaults
 - follow up on config defaults
 - double-check cleanup logic behavior
+- follow up on link checker
