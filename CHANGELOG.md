@@ -35,3 +35,4 @@
 - follow up on docs example
 - considered the macOS build; parked for now
 - follow up on release checklist
+- edge case observed while testing
