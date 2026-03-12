@@ -28,3 +28,4 @@
 - follow up on docs example
 - follow up on config defaults
 - slow start observed while testing
+- double-check docs example behavior
