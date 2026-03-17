@@ -11,3 +11,4 @@
 - cache miss observed while testing
 - considered release checklist; parked for now
 - follow up on the macOS build
+- double-check the retry path behavior
