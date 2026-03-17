@@ -40,3 +40,4 @@
 - follow up on ci caching
 - double-check config defaults behavior
 - edge case observed while testing
+- double-check docs example behavior
