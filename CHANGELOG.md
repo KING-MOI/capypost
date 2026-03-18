@@ -2,3 +2,4 @@
 - considered type narrowing; parked for now
 - follow up on link checker
 - follow up on type narrowing
+- edge case observed while testing
