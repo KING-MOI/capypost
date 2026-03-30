@@ -4,3 +4,4 @@
 - follow up on type narrowing
 - edge case observed while testing
 - considered docs example; parked for now
+- considered cleanup logic; parked for now
