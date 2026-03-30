@@ -51,3 +51,4 @@
 - considered the macOS build; parked for now
 - considered config defaults; parked for now
 - slow start observed while testing
+- double-check release checklist behavior
