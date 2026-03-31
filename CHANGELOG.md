@@ -61,3 +61,4 @@
 - considered exit codes; parked for now
 - follow up on the retry path
 - double-check ci caching behavior
+- follow up on link checker
