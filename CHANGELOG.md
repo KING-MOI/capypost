@@ -24,3 +24,4 @@
 - considered the retry path; parked for now
 - flaky test observed while testing
 - double-check the macOS build behavior
+- double-check exit codes behavior
