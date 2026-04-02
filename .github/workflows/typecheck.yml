@@ -2,10 +2,10 @@ name: Typecheck
 
 on:
   pull_request:
-    paths: ["outpost/**", ".github/workflows/typecheck.yml"]
+    paths: ["capypost/**", ".github/workflows/typecheck.yml"]
   push:
     branches: [main]
-    paths: ["outpost/**", ".github/workflows/typecheck.yml"]
+    paths: ["capypost/**", ".github/workflows/typecheck.yml"]
 
 # A new push to the same branch replaces the run in progress.
 concurrency:
@@ -21,14 +21,14 @@ jobs:
     timeout-minutes: 10
     defaults:
       run:
-        working-directory: outpost
+        working-directory: capypost
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: outpost/package-lock.json
+          cache-dependency-path: capypost/package-lock.json
       - run: npm ci --no-audit --no-fund
       - name: App
         run: npx tsc --noEmit

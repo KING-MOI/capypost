@@ -1,0 +1,61 @@
+# Revyl Test Definition
+
+_meta:
+    remote_id: 4017c49c-94d5-4a0d-8017-b1cf9af7c6e9
+    remote_version: 2
+    local_version: 2
+    last_synced_at: "2026-11-15T22:09:06Z"
+    checksum: 427e432f4de0a7d16d1ed2092f6c60123fba377246cc21c9fd891816c506ebb1
+test:
+    metadata:
+        name: capypost-smoke
+        platform: ios
+        tags:
+            - capypost-regression
+    build:
+        name: Capypost iOS
+        build_selection: inherit
+    blocks:
+        - type: manual
+          step_type: wait
+          step_description: "5"
+        - type: validation
+          step_description: No "While you were away" card is showing. The app opened straight onto a tab.
+        - type: validation
+          step_description: No sign-in, sign-up or account connection screen is showing, and there is no error such as "Capypost is full right now".
+        - type: instructions
+          step_description: Tap the Base tab in the bottom tab bar.
+        - type: validation
+          step_description: The Base screen shows the pixel-art village under a wooden header with streak, views and coin counters, and a tab bar with Bounties, Feed, Base and You at the bottom.
+        - type: instructions
+          step_description: Tap the Hood button with the gear icon at the top right of the Base header.
+        - type: validation
+          step_description: The "UNDER THE HOOD" screen is showing with a Services list.
+        - type: instructions
+          step_description: Tap Done at the top right.
+        - type: validation
+          step_description: The Base village is showing again.
+        - type: instructions
+          step_description: Tap the Feed tab in the bottom tab bar.
+        - type: manual
+          step_type: wait
+          step_description: "3"
+        - type: validation
+          step_description: The Feed shows either a full-screen video card with the estimated earnings and taste score over its top edge, or a designed empty state such as "ALL CAUGHT UP" or a message that the studio is offline. It is not blank and shows no error.
+        - type: validation
+          step_description: When a video card shows, a gold pill with a brand and a rate such as "$1.50/1K", or no pill for a non-bounty test clip, sits at its bottom left, and there are no REMAKE/POST buttons or edit chips under the video.
+        - type: instructions
+          step_description: Tap the You tab in the bottom tab bar.
+        - type: validation
+          step_description: The You screen shows a "YOU" header and a card with the day streak number and "DAY STREAK".
+        - type: instructions
+          step_description: Tap the yellow News button at the top right of the YOU header.
+        - type: manual
+          step_type: wait
+          step_description: "2"
+        - type: validation
+          step_description: A "While you were away" card floats over the You screen, with an X at its top right and a Collect or Close button. It has no "Review" link.
+        - type: instructions
+          step_description: Tap the Collect or Close button on that card and wait 3 seconds.
+        - type: validation
+          step_description: The card is gone and the You screen with the "YOU" header is still showing, not the Feed.
