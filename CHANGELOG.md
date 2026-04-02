@@ -6,3 +6,4 @@
 - considered docs example; parked for now
 - considered cleanup logic; parked for now
 - edge case observed while testing
+- considered link checker; parked for now
