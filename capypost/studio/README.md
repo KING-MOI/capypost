@@ -1,6 +1,6 @@
 # The studio
 
-The studio is the part of Outpost that makes the videos. It runs on the laptop, not in the cloud. For each video
+The studio is the part of Capypost that makes the videos. It runs on the laptop, not in the cloud. For each video
 the app asks for, it writes a script with Claude, voices it with Kokoro, renders it in Compound as a 3D animated
 reel, and uploads the MP4 to Convex storage, where the app's Feed picks it up.
 
@@ -100,7 +100,7 @@ A brief is a short plan for one video from trend research: `format` ("dialogue s
 `palette`. The worker writes the script from it and builds the scene it asks for. A remake keeps its parent's brief.
 
 ```bash
-# From outpost/. Queue a batch ahead of everything else the account has waiting (in this order).
+# From capypost/. Queue a batch ahead of everything else the account has waiting (in this order).
 npx convex run admin:queueBriefs '{"userId":"<user id>","briefs":[{"format":"...","story":"...","why":"..."}]}'
 # List a user's ready videos with a link to each file, to check the renders.
 npx convex run admin:readyUrls '{"userId":"<user id>"}'
@@ -154,7 +154,7 @@ once a minute.
 ## Running it
 
 ```bash
-cd outpost
+cd capypost
 while true; do node studio/worker.mjs; sleep 3; done
 ```
 

@@ -1,6 +1,6 @@
 # Backend
 
-The backend is a Convex deployment. Its code is in `outpost/convex/`. This page lists every module and its main functions. For how the pieces fit together, see [architecture.md](architecture.md).
+The backend is a Convex deployment. Its code is in `capypost/convex/`. This page lists every module and its main functions. For how the pieces fit together, see [architecture.md](architecture.md).
 
 Three kinds of caller reach these functions:
 
@@ -129,7 +129,7 @@ Taste memory in Supermemory. Convex keeps the notes, so a remake never waits on 
 
 | Function | Kind | What it does |
 |---|---|---|
-| `syncNote` | internal action | Sends one note to `POST /v3/documents` with container tag `outpost_<userId>` and the note id as `customId`, then starts a refresh round |
+| `syncNote` | internal action | Sends one note to `POST /v3/documents` with container tag `capypost_<userId>` and the note id as `customId`, then starts a refresh round |
 | `kick` | internal mutation | Starts a new refresh round. A newer round stops older ones |
 | `refresh` | internal action | Reads `/v3/documents/documents` and `/v4/profile` every 20 seconds, up to 15 tries, and caches what was learned in `taste` |
 | `syncPending` | internal mutation | Resends notes that never synced. With `all: true` it resends every note |
@@ -284,6 +284,6 @@ Everything else is scheduled by the code that needs it:
 
 ## Typecheck
 
-CI (`.github/workflows/typecheck.yml`) runs on pull requests that touch `outpost/`. It type-checks the app with `npx tsc --noEmit`, the Convex functions with `npx tsc --noEmit -p convex`, and checks the worker's syntax with `node --check studio/worker.mjs`.
+CI (`.github/workflows/typecheck.yml`) runs on pull requests that touch `capypost/`. It type-checks the app with `npx tsc --noEmit`, the Convex functions with `npx tsc --noEmit -p convex`, and checks the worker's syntax with `node --check studio/worker.mjs`.
 
 `npm test` runs the convex-test suite in `tests/` (Whop OAuth, refresh rotation, auto-submit and poll, posting modes) against a mocked `fetch`. It never reaches Whop. CI doesn't run it yet.

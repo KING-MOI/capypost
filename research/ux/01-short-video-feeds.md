@@ -1,6 +1,6 @@
 # Short-video feeds: how the UX works and what drives return visits
 
-Research for Outpost.
+Research for Capypost.
 
 Scope: TikTok, Instagram Reels, YouTube Shorts, Snapchat Spotlight, Douyin and Kuaishou. For each one this file covers first open, feed mechanics, gestures (with hold to 2x in detail), negative feedback, session and return data, published ranking signals, and speed.
 
@@ -365,12 +365,12 @@ My arithmetic on Krishnan: if the 5.8% per second holds in a straight line, a 5 
 
 ---
 
-## 7. What carries over to Outpost
+## 7. What carries over to Capypost
 
-Outpost differs from every app above in three ways that change how the evidence applies.
+Capypost differs from every app above in three ways that change how the evidence applies.
 
 1. The inventory is small and finite. The feed holds the user's own agent-made videos, maybe a handful to a few dozen per day, not an endless pool.
-2. A swipe is a decision with consequences. On TikTok a swipe is a cheap skip. In Outpost, swipe right posts the video publicly and swipe left sends feedback to the agents.
+2. A swipe is a decision with consequences. On TikTok a swipe is a cheap skip. In Capypost, swipe right posts the video publicly and swipe left sends feedback to the agents.
 3. The learner is a memory layer that steers creation, not a ranker choosing from existing videos. Feedback changes what gets made next.
 
 Each rule below names its evidence. Confidence reflects how directly the evidence transfers.
@@ -381,10 +381,10 @@ Each rule below names its evidence. Confidence reflects how directly the evidenc
 TikTok lets new users watch with zero account screens and asks for an account only when it is needed to act. [opinion] [TechCult](https://techcult.com/why-is-tiktok-making-me-sign-up/). The old account-first TikTok flow cost about 1.5 minutes before any video. [opinion] [Medium](https://medium.com/@laurens_mesure/why-do-most-onboarding-flows-suck-23592d827218). Confidence: medium. The pattern is clear, but no source gives a conversion number for gating vs not gating.
 
 **R2. Offer one optional, skippable niche picker. Have a fallback batch ready if the user skips.**
-TikTok uses one skippable interest screen and falls back to "a generalized feed of popular videos." [primary] [TikTok 2020](https://newsroom.tiktok.com/how-tiktok-recommends-videos-for-you?lang=en). For Outpost the fallback should be a prebuilt starter batch of 3 to 5 sample videos in different niches and styles. Agents cannot generate on demand fast enough for a first open. That last point is my judgment, not sourced.
+TikTok uses one skippable interest screen and falls back to "a generalized feed of popular videos." [primary] [TikTok 2020](https://newsroom.tiktok.com/how-tiktok-recommends-videos-for-you?lang=en). For Capypost the fallback should be a prebuilt starter batch of 3 to 5 sample videos in different niches and styles. Agents cannot generate on demand fast enough for a first open. That last point is my judgment, not sourced.
 
 **R3. Make the first batch varied on purpose. Treat the first sessions as exploration.**
-TikTok adds videos outside your apparent interests to learn. [primary] [TikTok 2020](https://newsroom.tiktok.com/how-tiktok-recommends-videos-for-you?lang=en). Personalization settles after about 100 recommendations. [academic] [Vombatkere 2024](https://arxiv.org/html/2403.12410). New users behave differently from regulars, and a dedicated new-user model added 7.75% watch time. [academic] [POSO](https://arxiv.org/abs/2108.04690). Outpost will not see 100 swipes in a day, so each early swipe must carry more information. That is why reasons (R9) and the taste list (R11) matter more here than on TikTok. Confidence: medium.
+TikTok adds videos outside your apparent interests to learn. [primary] [TikTok 2020](https://newsroom.tiktok.com/how-tiktok-recommends-videos-for-you?lang=en). Personalization settles after about 100 recommendations. [academic] [Vombatkere 2024](https://arxiv.org/html/2403.12410). New users behave differently from regulars, and a dedicated new-user model added 7.75% watch time. [academic] [POSO](https://arxiv.org/abs/2108.04690). Capypost will not see 100 swipes in a day, so each early swipe must carry more information. That is why reasons (R9) and the taste list (R11) matter more here than on TikTok. Confidence: medium.
 
 ### Playback speed
 
@@ -392,7 +392,7 @@ TikTok adds videos outside your apparent interests to learn. [primary] [TikTok 2
 Leave rate rises past 200 ms first frame on Douyin. [primary] [Volcano Engine](https://developer.volcengine.com/articles/7034471690427957262). Abandonment starts after 2 s and grows 5.8% per extra second, and short-clip viewers are the least patient. [academic] [Krishnan and Sitaraman](https://people.cs.umass.edu/~ramesh/Site/HOME_files/imc208-krishnan.pdf). Instagram credited removing join latency with more watch time. [primary] [Android Dev/Meta](https://developer.android.com/blog/posts/instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager). Confidence: high for the direction, medium for the exact thresholds.
 
 **R5. Preload the next 2 to 3 videos into memory and pre-render the next first frame. Use that frame as the poster. Start playback when the finger lifts, not when the animation ends. Never show a black frame.**
-These are ByteDance's published recommendations for Douyin-style feeds: preload 3 to 5 videos at about 800 KB each, pre-render 1, play on finger lift, non-black cover. [primary] [Volcano docs](https://docs.volcengine.com/docs/4/101200). Instagram keeps adjacent videos in memory in both directions. [primary] [Android Dev/Meta](https://developer.android.com/blog/posts/instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager). Outpost's queue is finite and known in advance, so the whole day's batch can sit on disk before the user opens the app. A feed with unlimited inventory cannot do that. Buffer a little before starting, because starting on the very first frame causes stalls in seconds 1 to 3. [primary] [Volcano Engine](https://developer.volcengine.com/articles/7316456932528390182). Confidence: high.
+These are ByteDance's published recommendations for Douyin-style feeds: preload 3 to 5 videos at about 800 KB each, pre-render 1, play on finger lift, non-black cover. [primary] [Volcano docs](https://docs.volcengine.com/docs/4/101200). Instagram keeps adjacent videos in memory in both directions. [primary] [Android Dev/Meta](https://developer.android.com/blog/posts/instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager). Capypost's queue is finite and known in advance, so the whole day's batch can sit on disk before the user opens the app. A feed with unlimited inventory cannot do that. Buffer a little before starting, because starting on the very first frame causes stalls in seconds 1 to 3. [primary] [Volcano Engine](https://developer.volcengine.com/articles/7316456932528390182). Confidence: high.
 
 **R6. Back off preloading under device stress.**
 Meta pauses preloading when CPU or I/O is high so scrolling stays smooth. [primary] [Android Dev/Meta](https://developer.android.com/blog/posts/instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager). This matters if the base-builder layer animates while videos preload. Confidence: medium.
@@ -405,7 +405,7 @@ TikTok, Instagram and YouTube Shorts all put it on the edges, end it on release,
 **R8. Read 2x as a pacing complaint, not approval. Log it and pass it to the video agents as "too slow at second X."**
 Speed-watching is "tolerance" behavior, and 88% of surveyed users say it signals lack of interest. Treating it as a negative signal raised day-2 retention by an average 0.36% and 0.67% in two test groups on a two-column video list. [academic] [Zou et al. 2026](https://arxiv.org/html/2412.09950v2). On the user's own video, 2x more likely means "the pacing drags" than "I hate this." That reading is my inference. Log where in the video the hold starts. Confidence: medium.
 
-**Gesture conflict note.** Outpost uses horizontal swipes for approve and reject, and the hold-to-2x zones are the same left and right edges. Recognize a hold only after the finger has stayed still for a short time. iOS's default long-press recognizer uses 0.5 s and 10 points of allowed movement (Apple UIKit defaults, from my own knowledge; I could not fetch Apple's page to confirm). Recognize a swipe as soon as horizontal movement passes the slop distance. On this screen, turn off the system left-edge back-swipe so it does not fight with reject. All of this is design judgment, not evidence.
+**Gesture conflict note.** Capypost uses horizontal swipes for approve and reject, and the hold-to-2x zones are the same left and right edges. Recognize a hold only after the finger has stayed still for a short time. iOS's default long-press recognizer uses 0.5 s and 10 points of allowed movement (Apple UIKit defaults, from my own knowledge; I could not fetch Apple's page to confirm). Recognize a swipe as soon as horizontal movement passes the slop distance. On this screen, turn off the system left-edge back-swipe so it does not fight with reject. All of this is design judgment, not evidence.
 
 ### Approve and reject
 
@@ -416,14 +416,14 @@ Speed-watching is "tolerance" behavior, and 88% of surveyed users say it signals
 - Mozilla's advice is to label controls by outcome ("Block future recommendations on this topic"). [3p] (Mozilla PDF)
 - YouTube's "Tell us why" offers only 2 reasons on a computer. [primary] [YouTube Help](https://support.google.com/youtube/answer/6342839)
 
-Outpost's chips should map to things an agent can act on. Examples: "Weak hook," "Too slow," "Voice," "Visuals," "Wrong topic," "Off-brand," "Product doesn't fit." Write them as outcomes, for example "Fewer videos with this hook style." The exact chip set is my judgment. Confidence: high for one swipe and visible reasons, medium for the chip count.
+Capypost's chips should map to things an agent can act on. Examples: "Weak hook," "Too slow," "Voice," "Visuals," "Wrong topic," "Off-brand," "Product doesn't fit." Write them as outcomes, for example "Fewer videos with this hook style." The exact chip set is my judgment. Confidence: high for one swipe and visible reasons, medium for the chip count.
 
 **R10. Show the feedback working. Confirm what changed, and make sure the next batch visibly reflects it.**
 - Feeds whose controls don't visibly work lose trust. 39.3% of YouTube control users felt nothing changed. [3p] [Mozilla](https://www.mozillafoundation.org/en/youtube/user-controls/)
 - The EU found TikTok's "not interested" ineffective because viewing time outweighed it. [primary] [EC IP/26/2361](https://ec.europa.eu/commission/presscorner/api/files/document/print/en/ip_26_2361/IP_26_2361_EN.pdf)
 - Training on negative labels cut similar recommendations about 61 to 64% after a dislike. [academic] [Wang et al.](https://arxiv.org/abs/2308.12256)
 
-For Outpost: explicit swipes and reasons should outrank implicit watch signals in Supermemory. After a reject, show a confirmation such as "Got it. Agents will avoid slow intros." Then tag the next batch, for example "Made with your note: faster hook." Confidence: high.
+For Capypost: explicit swipes and reasons should outrank implicit watch signals in Supermemory. After a reject, show a confirmation such as "Got it. Agents will avoid slow intros." Then tag the next batch, for example "Made with your note: faster hook." Confidence: high.
 
 **R11. Show the learned taste as an editable list, so Supermemory is visible and correctable.**
 - Instagram's "Your Algorithm" shows an AI-written topic list you can turn up, turn down or add to, and now takes natural-language prompts. [journalism] [Search Engine Land](https://searchengineland.com/instagram-your-algorithm-465987), [primary] [Meta Q2 2026](https://www.fool.com/earnings/call-transcripts/2026/08/07/meta-meta-q2-2026-earnings-call-transcript/)
@@ -454,7 +454,7 @@ Sources:
 - Kuaishou scores short view, long view and watch time separately. [academic] [Cai et al.](https://arxiv.org/abs/2302.01724)
 - Skips used as negative labels raised enjoyment. [academic] [Wang et al.](https://arxiv.org/abs/2308.12256)
 
-For Outpost a quick swipe on your own video is a decision, not a skip. So these signals describe how good the video felt to watch, which is still useful to the video agents. Confidence: medium.
+For Capypost a quick swipe on your own video is a decision, not a skip. So these signals describe how good the video felt to watch, which is still useful to the video agents. Confidence: medium.
 
 ### Feed presentation
 
@@ -470,12 +470,12 @@ The voiceover is part of what the user approves, so sound on by default matters 
 **R15. Design for short, frequent check-ins with a clear end, not endless scroll. Show "You're caught up" when the queue is empty, then send the user to the base.**
 - Snapchat users visited 18+ times a day for 25 to 30 minutes total, about 1.4 to 1.7 minutes per visit (my arithmetic). [primary] [Snap S-1](https://www.sec.gov/Archives/edgar/data/1564408/000119312517029199/d270216ds1.htm)
 - TikTok Android sessions run about 10 minutes. [3p, secondhand] [SQ Magazine](https://sqmagazine.co.uk/social-media-screen-time-statistics/)
-- Outpost's queue is finite anyway.
+- Capypost's queue is finite anyway.
 - EU regulators have named infinite scroll and autoplay as addictive-design risks for TikTok and Meta. [journalism] [Computer Weekly](https://www.computerweekly.com/news/366639072/European-Commission-TikToks-addictive-design-breaches-EU-law)
 
 A clean end state is honest and lower risk. Confidence: medium.
 
-**R16. Open on "since you left" results (new views, sales, approvals that went live) before the review queue. Fresh results are Outpost's version of fresh content.**
+**R16. Open on "since you left" results (new views, sales, approvals that went live) before the review queue. Fresh results are Capypost's version of fresh content.**
 - Meta and Snap both credit freshness for engagement gains. Same-day posts are over 30% of recommended Reels. [journalism] [MediaNama](https://www.medianama.com/2026/05/223-llm-based-recommenders-ads-ai-agents-metas-growth-strategy-q1-fy26-earnings-call/). Over half of recommended Instagram Feed content is under a day old. [primary] [Meta Q2 2026](https://www.fool.com/earnings/call-transcripts/2026/08/07/meta-meta-q2-2026-earnings-call-transcript/). Snap's US share of Spotlight views from content under 24 hours old rose over 300% YoY. [journalism] [Investing.com](https://www.investing.com/news/transcripts/earnings-call-transcript-snap-inc-q3-2025-beats-earnings-expectations-93CH-4335913)
 - Kuaishou optimizes directly for time-to-return. App-open frequency rose 0.45% once the model learned what brings people back. [academic] [Cai et al.](https://arxiv.org/abs/2302.01724)
 
@@ -502,7 +502,7 @@ Confidence: medium.
 7. Progress bars: when each platform shows one, whether it scrubs, and the video length threshold: [not found].
 8. Primary D1/D7/D30 retention for TikTok, Reels or Shorts: [not found]. Kuaishou gives definitions and lifts, not levels.
 9. What "over 80% retention among users who engage with it" means in Meta's Q2 2026 call: undefined in the transcript.
-10. Whether daily return can be built without push. Every platform above uses notifications. The EU's Feb 2026 TikTok finding lists them as an addictive-design feature. No source isolates return rates without push. This is the largest evidence gap for Outpost.
-11. Whether the TikTok "habit after 260 videos" finding transfers. Outpost users may see 5 to 30 videos a day, so a habit would have to come from decisions and results, not volume. Untested.
+10. Whether daily return can be built without push. Every platform above uses notifications. The EU's Feb 2026 TikTok finding lists them as an addictive-design feature. No source isolates return rates without push. This is the largest evidence gap for Capypost.
+11. Whether the TikTok "habit after 260 videos" finding transfers. Capypost users may see 5 to 30 videos a day, so a habit would have to come from decisions and results, not volume. Untested.
 12. Instagram and Facebook EU findings of July 2026: seen only through a secondary summary. The EC text should be checked before quoting.
 13. Whether "Tell us why" chips reduce reject volume or slow the user down. No source compares 0, 2 and 5 reasons.

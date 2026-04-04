@@ -1,14 +1,14 @@
-<p align="center"><img src="assets/readme/banner.png" alt="Outpost: get paid to doomscroll" width="100%"></p>
+<p align="center"><img src="assets/readme/banner.png" alt="Capypost: get paid to doomscroll" width="100%"></p>
 
-# Outpost
+# Capypost
 
-**Get paid to doomscroll.** Outpost is an iOS app where AI agents make short videos for real brand bounties, you swipe to decide which ones post, and your taste score rises or falls with the real views.
+**Get paid to doomscroll.** Capypost is an iOS app where AI agents make short videos for real brand bounties, you swipe to decide which ones post, and your taste score rises or falls with the real views.
 
 ## Why
 
 - You already judge thousands of videos a day by stopping or scrolling past. You do it for free, and the platforms keep the money.
 - AI can now make endless videos for almost nothing. It still can't tell which ones people want to watch. That takes a person.
-- So Outpost pays people for their taste and scores them on whether they were right.
+- So Capypost pays people for their taste and scores them on whether they were right.
 
 ## How it works
 
@@ -38,7 +38,7 @@ Nothing posts until a person swipes right. Your swipes train the agents, and rea
 
 <p align="center"><img src="assets/readme/architecture.png" alt="Architecture: the phone and the laptop studio meet in Convex; Capy and Revyl build and prove every change" width="100%"></p>
 
-| Sponsor | What it does in Outpost |
+| Sponsor | What it does in Capypost |
 |---|---|
 | **Convex** | The whole backend: users, bounties, the Feed, the studio's job queue, video files, posting, payments and crons. The phone and the laptop studio only talk through it. |
 | **Whop** | The money. Bounties come from Whop Content Rewards and Whop Bounties. Content Rewards posts are submitted with one tap, and Whop Bounties are submitted automatically with their review status tracked. |
@@ -60,7 +60,7 @@ The studio runs on a laptop: Claude writes each script, Kokoro voices it, Compou
 Every swipe teaches the agents what you like. Supermemory is where that lesson is kept.
 
 1. You swipe a video away and say why, like "Hook too slow" or "Visuals are boring".
-2. Outpost saves the reason to your own space in Supermemory, written as a taste note: "A creator skipped one of their own short videos. Their reason: the visuals were unengaging. They want livelier visuals."
+2. Capypost saves the reason to your own space in Supermemory, written as a taste note: "A creator skipped one of their own short videos. Their reason: the visuals were unengaging. They want livelier visuals."
 3. Supermemory turns those notes into memories about your taste and links related ones.
 4. When the studio writes your next video, Claude gets what Supermemory learned about you along with the brand's brief. The remake fixes what you complained about, and every video after it starts from your taste.
 
@@ -70,26 +70,26 @@ Every swipe teaches the agents what you like. Supermemory is where that lesson i
 
 | Path | What it is |
 |---|---|
-| `outpost/` | The app, backend and studio. Everything that runs is here |
-| `outpost/src/` | App screens and components. Routes are in `outpost/src/app/` |
-| `outpost/convex/` | Convex schema and functions |
-| `outpost/studio/` | The laptop studio worker and its Compound template |
-| `outpost/art/` | Python scripts that draw the pixel art |
-| `outpost/assets/` | Images, village art, icons and sounds |
-| `outpost/docs/` | Architecture, app, backend, integrations and demo docs |
+| `capypost/` | The app, backend and studio. Everything that runs is here |
+| `capypost/src/` | App screens and components. Routes are in `capypost/src/app/` |
+| `capypost/convex/` | Convex schema and functions |
+| `capypost/studio/` | The laptop studio worker and its Compound template |
+| `capypost/art/` | Python scripts that draw the pixel art |
+| `capypost/assets/` | Images, village art, icons and sounds |
+| `capypost/docs/` | Architecture, app, backend, integrations and demo docs |
 | `.github/workflows/typecheck.yml` | CI: type-checks the app and Convex, syntax-checks the worker |
 | `engagement-research.md` | Research on why short-video feeds hold attention |
 | `research/` | UX research (`ux/`) and the trend research behind the video batch (`trends/`) |
 | `visuals/` | Static HTML mockups and pitch visuals |
 
-The research notes and `visuals/` are background material. The code in `outpost/` is the source of truth.
+The research notes and `visuals/` are background material. The code in `capypost/` is the source of truth.
 
 ## Quick start
 
 You need macOS with Xcode, Node 22 and a Convex account.
 
 ```sh
-cd outpost
+cd capypost
 npm ci
 npx convex dev                         # log in, pick a project, push functions, write .env.local
 npx convex env set WORKER_SECRET <a long random string>
@@ -99,18 +99,18 @@ npx expo run:ios                       # build the dev client and run it on the 
 The Feed stays empty until the studio worker runs. It needs the `claude` CLI, Compound Beta, Kokoro and `ffmpeg` on the laptop:
 
 ```sh
-cd outpost
+cd capypost
 while true; do node studio/worker.mjs; sleep 3; done
 ```
 
-Posting, the shop raid and taste memory each need a key on Convex. New users start in dry run, which posts nothing. See [outpost/README.md](outpost/README.md) for the full setup.
+Posting, the shop raid and taste memory each need a key on Convex. New users start in dry run, which posts nothing. See [capypost/README.md](capypost/README.md) for the full setup.
 
 ## Docs
 
-- [outpost/README.md](outpost/README.md): running the app, the backend and the studio, and the environment variables each needs
-- [Architecture](outpost/docs/architecture.md): the system end to end, the life of a video, and the data model
-- [App](outpost/docs/app.md): each screen and what you can do on it
-- [Backend](outpost/docs/backend.md): Convex modules, crons, scheduled jobs, posting modes and admin commands
-- [Integrations](outpost/docs/integrations.md): each service, where it is used, and its status
-- [Demo runbook](outpost/docs/demo-runbook.md): running the live demo
-- [Studio](outpost/studio/README.md): the studio worker and its video template
+- [capypost/README.md](capypost/README.md): running the app, the backend and the studio, and the environment variables each needs
+- [Architecture](capypost/docs/architecture.md): the system end to end, the life of a video, and the data model
+- [App](capypost/docs/app.md): each screen and what you can do on it
+- [Backend](capypost/docs/backend.md): Convex modules, crons, scheduled jobs, posting modes and admin commands
+- [Integrations](capypost/docs/integrations.md): each service, where it is used, and its status
+- [Demo runbook](capypost/docs/demo-runbook.md): running the live demo
+- [Studio](capypost/studio/README.md): the studio worker and its video template

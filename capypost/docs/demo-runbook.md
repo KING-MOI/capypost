@@ -1,6 +1,6 @@
 # Demo runbook
 
-How to run Outpost live for the YC Consumer Mobile Hackathon demo on Sunday, November 15, 2026. It assumes the Convex functions are deployed, the server variables are set, and the demo user's Zernio accounts are linked. Setup for each part is in [outpost/README.md](../README.md).
+How to run Capypost live for the YC Consumer Mobile Hackathon demo on Sunday, November 15, 2026. It assumes the Convex functions are deployed, the server variables are set, and the demo user's Zernio accounts are linked. Setup for each part is in [capypost/README.md](../README.md).
 
 The demo needs three things running: the Convex deployment (cloud, always on), the studio worker on the laptop, and the Release build on the phone.
 
@@ -9,7 +9,7 @@ The demo needs three things running: the Convex deployment (cloud, always on), t
 1. **Check the demo user.**
 
    ```sh
-   cd outpost
+   cd capypost
    npx convex run admin:users
    ```
 
@@ -38,7 +38,7 @@ Do these in order, about 30 minutes before the demo.
 3. **Start the studio worker in a loop.**
 
    ```sh
-   cd outpost
+   cd capypost
    while true; do node studio/worker.mjs; sleep 3; done
    ```
 
@@ -53,7 +53,7 @@ You don't need `npx convex dev` running for the demo. The functions are already 
 1. **Install the Release build.**
 
    ```sh
-   cd outpost
+   cd capypost
    npx expo run:ios --configuration Release --device
    ```
 

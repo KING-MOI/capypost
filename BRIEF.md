@@ -1,4 +1,4 @@
-# Outpost: Project Brief
+# Capypost: Project Brief
 Canonical product direction from Charlie. Change it only on Charlie's word.
 
 ## Context
@@ -11,7 +11,7 @@ Get paid for your taste. Swipe through AI-made short videos built for real paid 
 
 ## Pitch
 - Taste/judgment = one of your most valuable assets, the thing AI can't do for you. You give it away free for hours daily (likes, shares, reposts) training Instagram's algorithm; Instagram keeps the money.
-- Outpost flips it: same swiping habit, but your picks get posted and earn. AI does all production; you're the director.
+- Capypost flips it: same swiping habit, but your picks get posted and earn. AI does all production; you're the director.
 - Anti-slop line: "Nothing posts unless a human with taste chose it. We're not adding to the flood, we're filtering it."
 - Closing hook: "Every day you train Instagram's algorithm for free. We let your taste work for you."
 
@@ -23,7 +23,7 @@ Get paid for your taste. Swipe through AI-made short videos built for real paid 
 - Review: checked against rules; auto-approved after 48h unless rejected. Botting = ban.
 - Payout: $0.20 to $6 per 1K views (avg ~$1). Only after campaign's min view threshold; capped at per-clip max; until budget runs out. Payout requestable every 3 days. Whop fee: 7% of clipper payouts.
 - Account rules: social account must be linked to the clipper's own Whop account via OAuth (TikTok, IG, X) or channel verification (YouTube). One social account per Whop profile. Public accounts only.
-- Payout goes to whoever's Whop account submitted. Money never flows through Outpost.
+- Payout goes to whoever's Whop account submitted. Money never flows through Capypost.
 
 ## User flow
 1. Onboard: connect own TikTok/socials (bring your own account) + own Whop account; link socials to Whop (one-time, on Whop).
@@ -49,7 +49,7 @@ Get paid for your taste. Swipe through AI-made short videos built for real paid 
 - Label: estimated, not guaranteed, pending Whop review. Flips to approved when Whop approves.
 
 ## Business model (open)
-- Whop pays users directly, so Outpost can't skim payouts. Options: subscription or separate fee.
+- Whop pays users directly, so Capypost can't skim payouts. Options: subscription or separate fee.
 - Original idea (user gets % of payout scaled by taste score) doesn't map to bring-your-own-account. Open: how taste score ties to money (leaderboard, perks, fee discounts, access to better bounties).
 
 ## Architecture
@@ -97,7 +97,7 @@ Get paid for your taste. Swipe through AI-made short videos built for real paid 
 - End on real traction numbers.
 
 ## Vision (last slide)
-Outpost's agent = your AI talent manager: own email to pitch brands and bring deals back as bounties, own iMessage number to keep you in the loop.
+Capypost's agent = your AI talent manager: own email to pitch brands and bring deals back as bounties, own iMessage number to keep you in the loop.
 
 ## Open
 - Business model + taste score to money link.

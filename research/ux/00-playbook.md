@@ -1,6 +1,6 @@
-# Outpost UX playbook
+# Capypost UX playbook
 
-This file turns six research reports into rules for Outpost's screens. The reports sit next to this file:
+This file turns six research reports into rules for Capypost's screens. The reports sit next to this file:
 
 - `01-short-video-feeds.md`: TikTok, Reels, Shorts, Spotlight, Douyin, Kuaishou
 - `02-swipe-and-feedback.md`: Tinder, Hinge, Bumble, CMB, Netflix thumbs, "tell us why" flows
@@ -13,19 +13,19 @@ Each rule names its evidence and the report number it came from. Evidence tags: 
 
 ## What the research changes
 
-1. **The feed is a short daily drop of your own videos that you judge. It is not an endless scroll.** AI video feeds built for watching lost their users. Sora's day-30 retention was under 8% [3p], users spent about 13 minutes a day on it against about 90 on TikTok [3p], and OpenAI shut the app down six months after launch [journalism]. The people who stayed came back to make and steer videos. About 70% of Sora return visits involved creating [company-reported], and 52% of returning Vibes users mainly prompted while 30% mainly scrolled [journalism]. In Outpost every swipe posts a video or trains the agents, which is the part of AI feeds that kept people. (06)
+1. **The feed is a short daily drop of your own videos that you judge. It is not an endless scroll.** AI video feeds built for watching lost their users. Sora's day-30 retention was under 8% [3p], users spent about 13 minutes a day on it against about 90 on TikTok [3p], and OpenAI shut the app down six months after launch [journalism]. The people who stayed came back to make and steer videos. About 70% of Sora return visits involved creating [company-reported], and 52% of returning Vibes users mainly prompted while 30% mainly scrolled [journalism]. In Capypost every swipe posts a video or trains the agents, which is the part of AI feeds that kept people. (06)
 2. **Every swipe has to change the next video, and the user has to see it change.** 39.3% of people who used YouTube's feed controls felt nothing changed [3p, Mozilla]. Google cut look-alike recommendations by 60.8% after a dislike when it trained on dislikes, and by 22.7% when the dislike was only an input [academic]. (01, 02)
 3. **Results arrive at set times, and those times are the reason to open the app.** There is no push, so the app has to teach a schedule: new videos at 8 AM, new results at 6 PM. Batching notifications three times a day beat both normal delivery and none at all on mood and stress (n=237) [academic, Fitz 2019]. Coffee Meets Bagel's one match at noon had 70% of users checking daily [company-reported]. (02, 03, 05)
 4. **Open on the base, already moving, and make coming back the reward.** People judge a screen's visual appeal in 50 ms [academic]. Showing the work raises the value of the result: in restaurant field tests, letting diners see the cooks raised rated quality 22.2% [academic]. The away screen lists what the agents did before it shows the numbers. (04)
 5. **Celebrate real outcomes only, sized to the outcome.** Feedback that grew with success raised enjoyment, and uniform big effects lowered players' sense of competence (n=1,699) [academic, Kao 2024]. Massachusetts banned Robinhood's confetti tied to trade frequency and its scratch-off reveal [primary]. (04, 05)
 
-## How the best apps did it, and the Outpost version
+## How the best apps did it, and the Capypost version
 
-| App | What they do | Evidence | Outpost version | Report |
+| App | What they do | Evidence | Capypost version | Report |
 |---|---|---|---|---|
 | TikTok | A video plays on first open with no account. One skippable interest picker. Account asked only when you act | The old account-first flow took about 1.5 min to the first video [opinion] | First video plays before any sign-up. Whop and social accounts are asked at the first right swipe | 01 |
 | Douyin player team | Preload 3 to 5 videos, pre-draw the next frame, start on finger lift, never show a black frame | Leave rate rises past 200 ms to first frame [primary] | The whole day's drop downloads before you open. Our spike measured 80 ms from swipe to first frame | 01 |
-| TikTok, Reels, Shorts | Hold the left or right edge for 2x, "2x" pill, release to stop. Shorts adds swipe down to lock | Shorts called it "top-requested" (June 2026) [primary]. 88% of users read speed-watching as low interest [academic] | Same gesture. Outpost reads a 2x hold as "this part drags" and tells the video agent to tighten that section | 01 |
+| TikTok, Reels, Shorts | Hold the left or right edge for 2x, "2x" pill, release to stop. Shorts adds swipe down to lock | Shorts called it "top-requested" (June 2026) [primary]. 88% of users read speed-watching as low interest [academic] | Same gesture. Capypost reads a 2x hold as "this part drags" and tells the video agent to tighten that section | 01 |
 | YouTube "Not interested" | 3 to 4 taps behind a menu | A one-click button got 2.2x more feedback with no drop in watching. 44% of users didn't know the menu option existed [3p, academic] | Reject is one swipe. Reasons are one tap | 01, 02 |
 | YouTube controls (Mozilla audit, n=22,722) | "Don't recommend channel" vs "Not interested" | Prevented 43% vs 11% of unwanted look-alikes [3p] | Reason chips read as orders to the agents ("Hook too slow"), never "Not for me" | 02 |
 | Netflix | Switched 5 stars to thumbs | 200% more ratings [company-reported] | Binary swipe. No stars, no scales | 02 |
@@ -61,7 +61,7 @@ Each rule names its evidence and the report number it came from. Evidence tags: 
 | AI creation apps | Lensa, AI photo apps | Lensa revenue -92% in about 4 weeks. AI photo downloads -78% in 2 months [3p] | Track week 4 and week 8 retention. Results, not novelty, have to carry week 5 | 06 |
 | YouTube policy | Won't pay for templated, interchangeable AI videos (July 2025) | [primary] | Forced variety. One labeled experiment per drop. AI label on every post | 06 |
 
-## A day with Outpost
+## A day with Capypost
 
 | Time | What happens | Why |
 |---|---|---|
@@ -146,7 +146,7 @@ Commit rule: the card follows the finger, a "POST" or "REJECT" stamp fades in, a
 
 ### 6. Results and firsts: the match moment
 
-Dating apps celebrate a real event, mutual interest (02). Outpost's match is a real outcome.
+Dating apps celebrate a real event, mutual interest (02). Capypost's match is a real outcome.
 
 1. Each first gets one full-screen moment: first video live, first 100 views, first follower, first link click, first sale (05). After that, smaller acknowledgments.
 2. The first sale gets its own sound, played twice in the user's lifetime, then the normal cash sound (Shopify, 05). The cash sound plays only for money, never for views.

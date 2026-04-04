@@ -1,6 +1,6 @@
 # Swipe-to-decide apps and "tell us why" feedback
 
-Research for Outpost.
+Research for Capypost.
 
 ## How to read this
 
@@ -53,7 +53,7 @@ Limits of this pass. The shared web-search budget ran out partway through. After
 | Top Picks (2018) | Curated daily set with short highlight tags. Refreshes every 24 hours. 1 free a day after the global launch, more for Gold. | "early success", no numbers | [primary] [Tinder press room](https://www.tinderpressroom.com/introducing-picks), [journalism] [Engadget, Sept 2018](https://www.engadget.com/2018-09-11-tinders-curated-top-picks-available-worldwide.html) |
 | Swipe Night (Oct 2019) | Scheduled interactive story event | matches +26%, messages +12% against a typical weekend | [company-reported] [Tinder press room, Sept 2020](https://www.tinderpressroom.com/news?item=122478) |
 
-Why the like limit matters for Outpost. Making "yes" scarce made each yes carry more information. Tinder's stated target was users who "only swipe right just to see who likes them back" ([TechCrunch](https://techcrunch.com/2015/03/12/hate-it-or-love-it-tinders-right-swipe-limit-is-working)).
+Why the like limit matters for Capypost. Making "yes" scarce made each yes carry more information. Tinder's stated target was users who "only swipe right just to see who likes them back" ([TechCrunch](https://techcrunch.com/2015/03/12/hate-it-or-love-it-tinders-right-swipe-limit-is-working)).
 
 ---
 
@@ -101,7 +101,7 @@ What Hinge shows. Feedback attached to a specific part of the content carries mo
 3. 70% of users checked for matches every day. The service grew 50% month over month and made over 100,000 introductions, which led to 6,000 connections. [company-reported] [TechCrunch, Sept 2012](https://techcrunch.com/2012/09/26/daily-dating-site-coffee-meets-bagel-lands-600k-from-lightbank-match-com-co-founder/). By my arithmetic that is a 6% connection rate.
 4. The app later moved to a small curated batch instead of a single match. [3p] [growthscribe](https://growthscribe.com/coffee-meets-bagel-worth/). Retention data for the later model. [not found]
 
-What CMB shows. A fixed daily drop gives people a reason to open the app on a schedule. The 70% daily-check figure is the strongest number in this set for a scheduled drop. It is company-reported, from a small early user base, and CMB used notifications, which Outpost will not have.
+What CMB shows. A fixed daily drop gives people a reason to open the app on a schedule. The 70% daily-check figure is the strongest number in this set for a scheduled drop. It is company-reported, from a small early user base, and CMB used notifications, which Capypost will not have.
 
 ---
 
@@ -177,7 +177,7 @@ What Zooniverse shows. Splitting a hard judgment into a binary swipe, then askin
 3. The stated reason: members treated stars as a public review score. Thumbs read as "teaching the system" about your taste. People gave documentaries 5 stars and silly movies 3, yet watched the silly movies more. [primary] [About Netflix](https://about.netflix.com/en/news/goodbye-stars-hello-thumbs), [journalism] [MacRumors](https://www.macrumors.com/2017/03/17/netflix-star-ratings-thumbs-up-down/)
 4. Later "two thumbs up" option. I could not load a primary page for it. [not found]
 
-What Netflix shows. Going from five choices to two tripled rating volume (a 200% increase), and the input was framed as teaching the system rather than reviewing the title. Outpost's swipe already has both properties.
+What Netflix shows. Going from five choices to two tripled rating volume (a 200% increase), and the input was framed as teaching the system rather than reviewing the title. Capypost's swipe already has both properties.
 
 ---
 
@@ -240,9 +240,9 @@ What this means. Use implicit signals (watch time, time to swipe, 2x use, rewatc
 
 ---
 
-## What carries over to Outpost
+## What carries over to Capypost
 
-Outpost differs from dating in three ways that shape every rule below.
+Capypost differs from dating in three ways that shape every rule below.
 
 1. The user is judging their own agents' work. A reject is not a dead end. It is a production instruction. The value of a reason is high because each bad video costs compute and the user's time.
 2. "Approve" publishes to TikTok, Shorts and Reels. It has public consequences, unlike a like.
@@ -257,13 +257,13 @@ Each rule says how strong its evidence is. "Inference" means I am carrying a fin
 3. **Commit rule.** The card follows the finger. It commits when released past about 50% of screen width, or on a fast fling. Otherwise it springs back. Lock to horizontal only when horizontal velocity beats vertical. Evidence: Android's documented defaults ([primary](https://developer.android.com/reference/androidx/recyclerview/widget/ItemTouchHelper.Callback)). Tinder's real values are [not found], so tune by test. Fade in a "POST" or "REJECT" label as the card moves so the user sees the outcome before letting go. That label is inference, with no data found.
 4. **Hold-to-2x and drag must not collide.** A finger that stays still past a short delay means hold. A finger that moves sideways past a small slop distance means drag. Evidence: none found specific to this. It follows from the direction-lock rule above. Inference.
 5. **Free, short undo for approve.** Approve moves the video to a "posting in N seconds" state with a large undo, and it actually publishes after the window or on the next decision. Evidence: swipes are easy to trigger by accident, so undo must be salient ([NN/g](https://www.nngroup.com/articles/contextual-swipe/)). Tinder and Bumble charge for undo ([3p](https://www.swipestats.io/blog/bumble-swipe-left-or-right)), but their cost of a mistake is a missed match, not a public post. Keep the window short. Daters with big choice sets and the ability to reverse were the least satisfied a week later ([academic](https://catalinatoma.weebly.com/uploads/8/4/8/5/84856566/dangelotoma_in_press__--_there_are_plenty_of_fish_in_the_sea.pdf)). Strength: medium.
-6. **Guard against approve-without-watching.** Swiping can make people "hooked on the action" without absorbing content ([Sundar quote](https://builtin.com/articles/tinder-swipe-design)). Tinder made right swipes scarce because indiscriminate liking hurt quality, and matches per right swipe rose 25% ([company-reported](https://techcrunch.com/2015/03/12/hate-it-or-love-it-tinders-right-swipe-limit-is-working)). For Outpost, log time-on-card before approve. If approvals regularly come in under the hook length, show a one-time nudge rather than a hard block. Inference.
-7. **One scarce strong-positive gesture.** Swipe up means "post this and make more like it." Limit it to one or a few per day. Evidence: Super Like (1 a day free) came with 3x match rates and 70% longer conversations ([company-reported](https://www.tinderpressroom.com/updated-introducing-super-like-a-new-type-of-swipe)). Hinge Roses are 1 free a week ([journalism](https://www.globaldatinginsights.com/news/hinge-reveals-standouts-and-roses/)). In Outpost the receiver is the memory layer, so scarcity keeps the signal strong. Inference.
+6. **Guard against approve-without-watching.** Swiping can make people "hooked on the action" without absorbing content ([Sundar quote](https://builtin.com/articles/tinder-swipe-design)). Tinder made right swipes scarce because indiscriminate liking hurt quality, and matches per right swipe rose 25% ([company-reported](https://techcrunch.com/2015/03/12/hate-it-or-love-it-tinders-right-swipe-limit-is-working)). For Capypost, log time-on-card before approve. If approvals regularly come in under the hook length, show a one-time nudge rather than a hard block. Inference.
+7. **One scarce strong-positive gesture.** Swipe up means "post this and make more like it." Limit it to one or a few per day. Evidence: Super Like (1 a day free) came with 3x match rates and 70% longer conversations ([company-reported](https://www.tinderpressroom.com/updated-introducing-super-like-a-new-type-of-swipe)). Hinge Roses are 1 free a week ([journalism](https://www.globaldatinginsights.com/news/hinge-reveals-standouts-and-roses/)). In Capypost the receiver is the memory layer, so scarcity keeps the signal strong. Inference.
 
 ### The payoff moment
 
 1. **Two payoffs, kept separate.** On approve, give an instant, honest confirmation: the card flies into a "queued for TikTok, Shorts, Reels" tray. Don't stage a fake celebration, because the outcome is unknown at swipe time. Evidence: Tinder's match screen celebrates a real event, mutual interest ([Hinge's description](https://medium.com/@Hinge/swiping-for-love-in-all-the-wrong-places-21a681109505)). Inference.
-2. **Results arrive as a daily drop, shown first on open.** The order is "Since you left" (views and sales on past approvals), then today's batch. Keep it on a fixed schedule so the user learns when to come back. Evidence: CMB's noon drop came with 70% of users checking daily ([company-reported](https://techcrunch.com/2012/09/26/daily-dating-site-coffee-meets-bagel-lands-600k-from-lightbank-match-com-co-founder/)). Tinder Top Picks refreshes every 24 hours ([primary](https://www.tinderpressroom.com/introducing-picks)), Hinge Standouts refreshes daily ([journalism](https://www.globaldatinginsights.com/news/hinge-reveals-standouts-and-roses/)), and Most Compatible expires after 24 hours ([journalism](https://thehustle.co/hinge-machine-learning-algorithm)). A scheduled event (Swipe Night) lifted matches 26% ([company-reported](https://www.tinderpressroom.com/news?item=122478)). Caveat: all of these apps also used notifications. Outpost has none, so the drop must be worth opening on its own. Unknown.
+2. **Results arrive as a daily drop, shown first on open.** The order is "Since you left" (views and sales on past approvals), then today's batch. Keep it on a fixed schedule so the user learns when to come back. Evidence: CMB's noon drop came with 70% of users checking daily ([company-reported](https://techcrunch.com/2012/09/26/daily-dating-site-coffee-meets-bagel-lands-600k-from-lightbank-match-com-co-founder/)). Tinder Top Picks refreshes every 24 hours ([primary](https://www.tinderpressroom.com/introducing-picks)), Hinge Standouts refreshes daily ([journalism](https://www.globaldatinginsights.com/news/hinge-reveals-standouts-and-roses/)), and Most Compatible expires after 24 hours ([journalism](https://thehustle.co/hinge-machine-learning-algorithm)). A scheduled event (Swipe Night) lifted matches 26% ([company-reported](https://www.tinderpressroom.com/news?item=122478)). Caveat: all of these apps also used notifications. Capypost has none, so the drop must be worth opening on its own. Unknown.
 3. **Close the loop the way Hinge's We Met does.** When results come in, ask one question about a winner or a flop ("This hit 40k views. More like it?"). Evidence: Hinge asks a few days after the real-world outcome and calls that the "strongest signal" ([journalism](https://www.engadget.com/2018-10-16-hinge-we-met-first-date-ai.html)). YouTube asks "why" on high ratings as well as low ones ([primary](https://blog.youtube/inside-youtube/on-youtubes-recommendation-system/)). Strength: medium.
 4. **Show that feedback changed something.** Label the next relevant video, for example "Shorter hook, from your note yesterday." Evidence: 39.3% of YouTube control users felt nothing changed ([Mozilla](https://assets.mofoprod.net/network/documents/Mozilla-Report-YouTube-User-Controls.pdf)). Google cut similar recommendations after a dislike by 60.8% only when the dislike was a training label, against 22.7% as an input feature only ([academic](https://arxiv.org/abs/2308.12256)). Strength: good for "make feedback actually train the model". Inference for "show it."
 
@@ -272,7 +272,7 @@ Each rule says how strong its evidence is. "Inference" means I am carrying a fin
 1. **Small daily batch with a clear end.** Start with about 5 to 12 videos per drop and a hard ceiling well under 30, then a "done for today" screen that previews when results land. Evidence: acceptance fell 27% from first to last option, and in one study rejection held steady to about 30 choices before falling faster ([academic](https://research.tilburguniversity.edu/en/publications/a-rejection-mind-set-choice-overload-in-online-dating/)). The same researcher advises at most 5 profiles a session ([opinion](https://spsp.org/news-center/character-context-blog/why-online-dating-heaven-and-hell)). Choosing from 6 beat choosing from 24 on later satisfaction ([academic](https://catalinatoma.weebly.com/uploads/8/4/8/5/84856566/dangelotoma_in_press__--_there_are_plenty_of_fish_in_the_sea.pdf)). CMB launched with 1 a day and Hinge gave 10 free likes a day ([journalism](https://www.thewrap.com/hinge-dating-app-swipe-right-tinder-bumble/)). The exact number for self-made videos is unknown, so test 5 against 10 against 15.
 2. **Discount late-session rejections in memory.** If the reject rate climbs across a session, weight later rejections lower, or confirm them before they shape taste. Evidence: the rejection mind-set builds within a session ([academic](https://research.tilburguniversity.edu/en/publications/a-rejection-mind-set-choice-overload-in-online-dating/)). Inference.
 3. **Cap the unreviewed backlog.** If more than N videos wait for a decision, agents pause new videos of that type and work on non-video tasks. Evidence: Hinge's 8-unanswered cap raised responsiveness 20% ([company-reported](https://www.yahoo.com/lifestyle/hinge-adds-limit-unanswered-messages-120000786.html)). Inference.
-4. **Use limits to raise quality, not to sell upgrades.** Tinder's like cap raised matches per swipe 25% and messages per match 25% ([company-reported](https://techcrunch.com/2015/03/12/hate-it-or-love-it-tinders-right-swipe-limit-is-working)). Outpost's limit also controls posting volume on the user's real accounts.
+4. **Use limits to raise quality, not to sell upgrades.** Tinder's like cap raised matches per swipe 25% and messages per match 25% ([company-reported](https://techcrunch.com/2015/03/12/hate-it-or-love-it-tinders-right-swipe-limit-is-working)). Capypost's limit also controls posting volume on the user's real accounts.
 
 ### The left-swipe "why" flow
 
@@ -312,4 +312,4 @@ Log these so the team can check the rules above against its own data:
 6. Raya, Jodel, recipe swipe apps, Bumble official metrics, Spotify official docs (Hide, taste-profile exclusion, DJ voice requests), Pinterest reason menus, Amazon "not interested." Not found, or not reached before the search budget ran out.
 7. Most company figures here (Super Like 3x, Hinge 2x and 47%, Most Compatible 8x, CMB 70%, Tinder like limit +25%) lack baselines and confidence intervals. They show direction, not effect size.
 8. Pronk's "stable to about 30 choices" detail comes from a secondary summary. Check it against the full paper before quoting it as a hard threshold.
-9. Whether public consequences change swipe behavior. In dating a right swipe is private. In Outpost it publishes. That could slow decisions and raise undo use. No data found.
+9. Whether public consequences change swipe behavior. In dating a right swipe is private. In Capypost it publishes. That could slow decisions and raise undo use. No data found.

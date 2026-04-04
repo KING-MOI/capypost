@@ -8,7 +8,7 @@ Rules:
 
 - Keep every name, argument and return field here. An owner may add return fields; removing or renaming one, or
   any schema change, goes through the Captain as a small dedicated PR.
-- v1 is a demo build. Nobody signs in or connects an account. Every user posts to Outpost's demo Instagram and
+- v1 is a demo build. Nobody signs in or connects an account. Every user posts to Capypost's demo Instagram and
   YouTube through Zernio. Bounties come from the Content Rewards public catalog, and a submission is a one-tap
   "Submit on Whop" (`manual` submission rows). There is no Whop OAuth, token or auto-submit in v1.
 - Tokens, if any arrive later, stay server-side: never in a public function's result, a `calls` row or a log line.

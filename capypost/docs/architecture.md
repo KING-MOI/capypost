@@ -1,17 +1,17 @@
 # Architecture
 
-Outpost has three running parts:
+Capypost has three running parts:
 
-- **The app** (`outpost/src/`). An Expo Router iOS app. It talks only to Convex.
-- **Convex** (`outpost/convex/`). The backend in the cloud. It holds all data and video files, runs the Feed, schedules posts, and calls Zernio, Whop and Supermemory.
-- **The studio worker** (`outpost/studio/worker.mjs`). A Node process on the builder's laptop. It takes video jobs from Convex, writes, voices and renders each one, and uploads the file back to Convex.
+- **The app** (`capypost/src/`). An Expo Router iOS app. It talks only to Convex.
+- **Convex** (`capypost/convex/`). The backend in the cloud. It holds all data and video files, runs the Feed, schedules posts, and calls Zernio, Whop and Supermemory.
+- **The studio worker** (`capypost/studio/worker.mjs`). A Node process on the builder's laptop. It takes video jobs from Convex, writes, voices and renders each one, and uploads the file back to Convex.
 
 The phone never calls an outside service, and the laptop only makes videos. Posting, view counts, payments and taste memory all run in Convex, so they keep working while the laptop sleeps. Only new videos stop.
 
 ```mermaid
 flowchart LR
   subgraph Phone
-    App[Outpost app]
+    App[Capypost app]
   end
   subgraph Cloud
     Convex[(Convex)]
@@ -108,7 +108,7 @@ The worker sets `stage: "voicing"` and sends the hook (without `POV:`), each bea
 
 The worker sets `stage: "rendering"`. `layout()` in `reel.mjs` turns the script and word timings into a flat list of timed events. The worker writes them into the Compound project's `jobs.ts` (keeping the last 8 scenes) and calls Compound's `export`. Compound exports one scene at a time, so renders queue in the worker. The output is a 1080 x 1920 MP4.
 
-The template the worker copies into the Compound project at start lives in `studio/template/`. For how the reel is drawn, see [`outpost/studio/README.md`](../studio/README.md).
+The template the worker copies into the Compound project at start lives in `studio/template/`. For how the reel is drawn, see [`capypost/studio/README.md`](../studio/README.md).
 
 ### 6. Upload
 
@@ -152,7 +152,7 @@ The `read views` cron runs `views.sync` every 20 minutes. It asks Zernio for the
 ## Taste memory
 
 1. A left swipe with a reason writes a `tasteNotes` row and schedules `memory.syncNote`.
-2. `syncNote` sends the note to Supermemory with the container tag `outpost_<userId>` and the note id as `customId`.
+2. `syncNote` sends the note to Supermemory with the container tag `capypost_<userId>` and the note id as `customId`.
 3. `memory.kick` starts a round of `memory.refresh` checks every 20 seconds, up to 15 tries. Each reads the user's documents and profile from Supermemory.
 4. What Supermemory has learned is cached in the `taste` table, so neither the studio nor the app waits on Supermemory.
 5. `studio.claim` passes the newest notes and learned lines to the script writer.

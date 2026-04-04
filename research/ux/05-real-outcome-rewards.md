@@ -1,6 +1,6 @@
 # Real-outcome rewards: apps where the payoff arrives later and varies in size
 
-Research for Outpost. Compiled 12 November 2026.
+Research for Capypost. Compiled 12 November 2026.
 
 ## How to read this file
 
@@ -121,7 +121,7 @@ Acorns Round-Ups.
 3. Spare change is held until it totals at least $5, then invested. Users can multiply Round-Ups by 2x, 3x or 10x [primary] ([Acorns Round-Ups page](https://www.acorns.com/round-ups/)).
 4. Acorns says the average customer invests over $180 in the first four months with Round-Ups, and claims 16 million all-time customers [company-reported] (same page).
 
-The design point for Outpost is the $5 threshold. Acorns bundles tiny amounts into one bigger, less frequent event.
+The design point for Capypost is the $5 threshold. Acorns bundles tiny amounts into one bigger, less frequent event.
 
 Cash App and Coinbase. Cash App had 57 million monthly transacting accounts in 2023 [journalism] ([CNBC via Wikipedia](https://www.cnbc.com/2024/05/02/block-sq-earnings-q1-2024.html)). It has run a weekly "#SuperCashAppFriday" cash giveaway since 2017 [opinion] (cited on [Wikipedia](https://en.wikipedia.org/wiki/Cash_App)). Engagement data on Cash App's investing features or Coinbase price alerts: [not found].
 
@@ -184,7 +184,7 @@ In-play features documented in research: a 2018 scoping study found that 26% of 
 - A separate dopamine response "covaried with uncertainty" and rose gradually until the expected time of reward. Uncertainty is maximal at a 50% chance [academic] ([Fiorillo, Tobler and Schultz, Science, 2003](https://doi.org/10.1126/science.1077349)). Waiting for an uncertain outcome is itself part of the reward.
 - People worked harder for an uncertain reward than for a better certain one. 70% finished a water-drinking task for a coin flip between $1 and $2, against 43% for a sure $2. A follow-up found 25% more water drunk. The effect appeared only when people focused on the process of pursuing the reward, not the outcome [academic] ([Shen, Fishbach and Hsee, Journal of Consumer Research, 2015](https://faculty.chicagobooth.edu/-/media/faculty/ayelet-fishbach/research/uncertainty_jcr.pdf)).
 
-The implication for Outpost is that real outcomes already vary. The team does not need to add randomness to get the uncertainty effect.
+The implication for Capypost is that real outcomes already vary. The team does not need to add randomness to get the uncertainty effect.
 
 ### Social rewards
 
@@ -249,18 +249,18 @@ Benchmarks for typical views on a new TikTok, Shorts or Reels account: [not foun
 
 ---
 
-## What carries over to Outpost
+## What carries over to Capypost
 
 Each rule names the evidence behind it. Where a rule is my inference and not directly tested, it says so.
 
 ### Timing of the results reveal
 
 1. Show results in fixed batches, not as a live ticker. Two or three refreshes a day is a reasonable start. Put the next update time on screen ("Next update 6:00 pm"). Evidence: batching three times a day beat both normal and zero notifications on well-being ([Fitz et al. 2019](https://doi.org/10.1016/j.chb.2019.07.016)) [academic]. Creators who checked several times a day had worse well-being ([C4MH via Entrepreneur](https://www.entrepreneur.com/living/i-cant-afford-to-take-breaks-content-creators-are/499525)) [journalism]. Applying batching to in-app results, not notifications, is my inference.
-2. Because Outpost has no push, tell users when results will be ready. The no-notification group in Fitz et al. reported more anxiety and fear of missing out [academic]. A known release time is my proposed fix, not a tested one.
-3. Make the newest results the first thing on open, and keep the check short. Quick access to new information is what forms a checking habit ([Oulasvirta et al. 2012](https://doi.org/10.1007/s00779-011-0412-2)) [academic]. That works for Outpost's daily-open goal. The same paper says users felt checking as an annoyance, so do not add steps or friction to reach the result.
+2. Because Capypost has no push, tell users when results will be ready. The no-notification group in Fitz et al. reported more anxiety and fear of missing out [academic]. A known release time is my proposed fix, not a tested one.
+3. Make the newest results the first thing on open, and keep the check short. Quick access to new information is what forms a checking habit ([Oulasvirta et al. 2012](https://doi.org/10.1007/s00779-011-0412-2)) [academic]. That works for Capypost's daily-open goal. The same paper says users felt checking as an annoyance, so do not add steps or friction to reach the result.
 4. Do not let pull-to-refresh change numbers between batches. A refresh that sometimes shows something new on demand is a variable-ratio loop. The UK rules move the other way, slowing play down (2.5 seconds minimum) and banning shortcuts that speed up results ([UKGC RTS 14](https://www.gamblingcommission.gov.uk/standards/remote-gambling-and-software-technical-standards/rts-14-responsible-product-design)) [primary].
 5. Mark early numbers as estimates and show an "as of" time. YouTube's own Realtime figures are estimates and can freeze or change for days ([YouTube Help](https://support.google.com/youtube/answer/2991785?hl=en)) [primary].
-6. Let the wait build toward a known reveal time. Dopamine activity related to uncertainty ramps up until the expected reward time ([Fiorillo et al. 2003](https://doi.org/10.1126/science.1077349)) [academic]. Uncertain rewards motivate when people focus on the process ([Shen et al. 2015](https://faculty.chicagobooth.edu/-/media/faculty/ayelet-fishbach/research/uncertainty_jcr.pdf)) [academic]. Outpost's real outcomes are uncertain already, so do not add artificial randomness.
+6. Let the wait build toward a known reveal time. Dopamine activity related to uncertainty ramps up until the expected reward time ([Fiorillo et al. 2003](https://doi.org/10.1126/science.1077349)) [academic]. Uncertain rewards motivate when people focus on the process ([Shen et al. 2015](https://faculty.chicagobooth.edu/-/media/faculty/ayelet-fishbach/research/uncertainty_jcr.pdf)) [academic]. Capypost's real outcomes are uncertain already, so do not add artificial randomness.
 
 ### Sound
 
@@ -274,25 +274,25 @@ Each rule names the evidence behind it. Where a rule is my inference and not dir
 
 ### Animation and the base-builder layer
 
-11. Animate outcomes, never the number of actions. Do not show confetti or a reward for "you swiped 20 videos" or "you posted 5 times." Celebrate a first sale, a views milestone, a first follower. Evidence: the Massachusetts order bans "celebratory imagery directly tied to frequency of trading" ([consent order](https://www.sec.state.ma.us/divisions/securities/download/RH-Consent-Order.pdf)) [primary]. Confetti and badges raised trading 5.17% and drew in less literate users ([Chapkovski et al.](https://pubsonline.informs.org/doi/10.1287/mnsc.2022.02650)) [academic]. Outpost is not a broker. This is the nearest legal precedent.
-12. The vault should fill with net money, or show gross and costs side by side. If a day's sales are below what the user paid for Outpost or for ads, do not play a win animation. Evidence: UK rules ban celebrating "a return which is less than or equal to the total stake" [primary]. Losses disguised as wins were as arousing as real wins ([Dixon et al. 2010](https://doi.org/10.1111/j.1360-0443.2010.03050.x)) [academic].
+11. Animate outcomes, never the number of actions. Do not show confetti or a reward for "you swiped 20 videos" or "you posted 5 times." Celebrate a first sale, a views milestone, a first follower. Evidence: the Massachusetts order bans "celebratory imagery directly tied to frequency of trading" ([consent order](https://www.sec.state.ma.us/divisions/securities/download/RH-Consent-Order.pdf)) [primary]. Confetti and badges raised trading 5.17% and drew in less literate users ([Chapkovski et al.](https://pubsonline.informs.org/doi/10.1287/mnsc.2022.02650)) [academic]. Capypost is not a broker. This is the nearest legal precedent.
+12. The vault should fill with net money, or show gross and costs side by side. If a day's sales are below what the user paid for Capypost or for ads, do not play a win animation. Evidence: UK rules ban celebrating "a return which is less than or equal to the total stake" [primary]. Losses disguised as wins were as arousing as real wins ([Dixon et al. 2010](https://doi.org/10.1111/j.1360-0443.2010.03050.x)) [academic].
 13. The base must never decay because the user did not open the app. Only real outcomes move it. Evidence: Robinhood's waitlist dropped people who did not tap daily ("out of taps today! Come back tomorrow if you're feeling tappy"), and the order bans it permanently [primary].
 14. No scratch-off, slot-reel or spin-to-reveal animation for money. A count-up from the last value to the new value is fine. Evidence: the order bans "features that mimic games of chance" after the scratch-off free-stock reveal [primary].
-15. Keep the reveal a fixed length and skippable. The UK rules ban letting players speed up results because that increases play speed [primary]. For Outpost, the risk is the opposite: a long forced animation becomes a delay users learn to wait through. This rule is my inference.
+15. Keep the reveal a fixed length and skippable. The UK rules ban letting players speed up results because that increases play speed [primary]. For Capypost, the risk is the opposite: a long forced animation becomes a delay users learn to wait through. This rule is my inference.
 
 ### Framing small numbers
 
 16. Early on, show what has been gained in total ("38 views across your first 3 videos"). Once a user is close to a milestone, show what is left ("12 views to 1,000"). Evidence: the small-area hypothesis ([Koo and Fishbach 2012](https://doi.org/10.1086/663827)) [academic]. Goal-gradient speed-up predicted retention ([Kivetz et al. 2006](https://doi.org/10.1509/jmkr.43.1.39)) [academic].
 17. Compare each video to the user's own recent videos, not to other users. YouTube compares to "your typical performance" and to the last 10 similar videos [primary]. Christin and Lewis found metrics doubling as status, with creators distancing themselves from them [academic].
 18. Add up results across TikTok, Shorts and Reels into one number per video, with a per-platform breakdown underneath. Acorns batches change until it reaches $5 [primary]. Adding platforms together is my inference. Label each platform's figure, since view definitions differ and YouTube changed its definition on 24 August 2026 [primary].
-19. Start milestones low and space them roughly by doubling (for example 10, 50, 100, 500, 1,000 views; first follower; first click; first sale). YouTube's achievement cards included small milestones such as 500 views [journalism], while its formal awards start at 100,000 subscribers [primary]. The exact ladder should come from Outpost's own early data, because benchmarks were [not found].
+19. Start milestones low and space them roughly by doubling (for example 10, 50, 100, 500, 1,000 views; first follower; first click; first sale). YouTube's achievement cards included small milestones such as 500 views [journalism], while its formal awards start at 100,000 subscribers [primary]. The exact ladder should come from Capypost's own early data, because benchmarks were [not found].
 20. Give consistency some credit, as Strava's Local Legend does ("regardless of pace or speed") [primary]. Keep it modest and avoid action-count celebrations (rule 11).
-21. Do not fake a head start. Endowed progress works ([Nunes and Drèze 2006](https://doi.org/10.1086/500480)) [academic]. Summaries say it needs a stated reason [opinion]. Outpost can count real setup steps, such as the account connected, the first product created and the first video approved, as early progress. That is honest and fits the evidence.
+21. Do not fake a head start. Endowed progress works ([Nunes and Drèze 2006](https://doi.org/10.1086/500480)) [academic]. Summaries say it needs a stated reason [opinion]. Capypost can count real setup steps, such as the account connected, the first product created and the first video approved, as early progress. That is honest and fits the evidence.
 
 ### Celebrating firsts
 
 22. Celebrate each first once, in full: first video live, first 100 views, first follower, first link click, first dollar. After that, smaller acknowledgments. Evidence: YouTube built achievement cards to "better recognize creators" [journalism]. Shopify limits its special voice to two plays [primary]. Substack writers celebrate their first paid subscriber on their own [opinion]. No controlled study of first-milestone celebrations was found [not found].
-23. Let users share a first if they want to. Strava kudos and social feedback are tied to more activity ([Franken et al. 2023](https://doi.org/10.1016/j.socnet.2022.10.001)) [academic]. Sharing is opt-in so Outpost's numbers stay private by default.
+23. Let users share a first if they want to. Strava kudos and social feedback are tied to more activity ([Franken et al. 2023](https://doi.org/10.1016/j.socnet.2022.10.001)) [academic]. Sharing is opt-in so Capypost's numbers stay private by default.
 
 ### User control
 
@@ -306,9 +306,9 @@ Each rule names the evidence behind it. Where a rule is my inference and not dir
 - "Almost viral" or "so close" copy on a single random result. Near misses raise the urge to keep going without any reward ([Clark et al. 2009](https://doi.org/10.1016/j.neuron.2008.12.031)) [academic]. Showing distance to a cumulative milestone is different and fine (rule 16).
 - Scratch-off, slot or spin reveals for money. Massachusetts consent order [primary].
 - Streaks or ranks that decay when the user is away. Massachusetts complaint and order [primary].
-- "Trending" or "popular" prompts that push users to post more of what others post. The order bans generic list-highlighting pushes [primary]. Robinhood herding predicted -4.7% returns ([Barber et al. 2022](https://onlinelibrary.wiley.com/doi/abs/10.1111/jofi.13183)) [academic]. For Outpost the harm would be lost money on cloned products, not stock losses. This parallel is my inference.
-- Emojis and playful copy on money screens. The order requires removing emojis "from the life-cycle of a transaction" [primary]. That rule binds a broker, not Outpost, but it shows how regulators read playful money UX.
-- More incentives for users who are losing. ProPublica documented VIP offers after heavy losses [journalism]. If Outpost ever sells boosts or credits, do not target users whose results are falling.
+- "Trending" or "popular" prompts that push users to post more of what others post. The order bans generic list-highlighting pushes [primary]. Robinhood herding predicted -4.7% returns ([Barber et al. 2022](https://onlinelibrary.wiley.com/doi/abs/10.1111/jofi.13183)) [academic]. For Capypost the harm would be lost money on cloned products, not stock losses. This parallel is my inference.
+- Emojis and playful copy on money screens. The order requires removing emojis "from the life-cycle of a transaction" [primary]. That rule binds a broker, not Capypost, but it shows how regulators read playful money UX.
+- More incentives for users who are losing. ProPublica documented VIP offers after heavy losses [journalism]. If Capypost ever sells boosts or credits, do not target users whose results are falling.
 - Hard-to-reverse choices, repeated asks, and buried cancel paths. DSA Article 25 [primary]. FTC dark patterns report [primary]. Mathur et al. [academic].
 - Showing other users' earnings to motivate. US earnings-claim rules likely apply to an app that promises income. I could not verify FTC earnings-claim guidance this session. Check it before any marketing or in-app social proof uses dollar figures.
 
@@ -319,11 +319,11 @@ Each rule names the evidence behind it. Where a rule is my inference and not dir
 1. Typical views, followers and sales for a brand-new account on TikTok, Shorts and Reels in its first 30 days. Needed to set milestone thresholds. [not found]
 2. Official refresh rates and delays for TikTok and Instagram analytics, and for the YouTube Realtime card. [not found]
 3. Any controlled data on sale sounds or haptics and return visits. Shopify, Stripe and Gumroad publish none. [not found]
-4. Whether Outpost's no-push design cuts daily opens, and whether a stated "results at 9 am" time removes the fear-of-missing-out cost Fitz et al. found. Untested.
+4. Whether Capypost's no-push design cuts daily opens, and whether a stated "results at 9 am" time removes the fear-of-missing-out cost Fitz et al. found. Untested.
 5. Whether AI-made content weakens the link between metrics and self-worth that creators report. Users may blame the agent, not themselves. Untested hypothesis.
 6. Strava retention data tied to kudos. Strava does not publish it. [not found]
 7. ESPN, Yahoo and Sleeper game-day check frequency, and the live share of US sports betting handle. [not found]
 8. Status of the SEC's 2023 predictive data analytics proposal. Not verified this session.
-9. Whether FTC earnings-claim rules and the EU DSA apply to Outpost. Needs a lawyer's read. DSA Article 25 covers "online platforms," and it is unclear if Outpost counts as one.
+9. Whether FTC earnings-claim rules and the EU DSA apply to Capypost. Needs a lawyer's read. DSA Article 25 covers "online platforms," and it is unclear if Capypost counts as one.
 10. Items I could not open this session that should be checked next: the Ontario Securities Commission study on digital engagement practices, the UK FCA research on gamified trading apps, academic work on sports betting legalization and household finances, Instagram's internal like-hiding data, and Whop's own sale notification behavior.
 11. Whether "confetti" or celebratory UX for real business revenue, as opposed to trading, has ever drawn regulatory action. [not found]

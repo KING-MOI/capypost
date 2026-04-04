@@ -11,8 +11,8 @@ Import everything from one place:
 import { Button, Card, Chip, ChipRow, NumberTicker, VerdictBadge, money } from "../ui";
 ```
 
-See every primitive in every state in the gallery: `outpost://ui-gallery` on a device (`xcrun simctl openurl booted
-outpost://ui-gallery` on a simulator), or `outpost://ui-gallery?only=chips` for one section. Sections:
+See every primitive in every state in the gallery: `capypost://ui-gallery` on a device (`xcrun simctl openurl booted
+capypost://ui-gallery` on a simulator), or `capypost://ui-gallery?only=chips` for one section. Sections:
 `buttons`, `chips`, `badges`, `numbers`, `progress`, `tiers`, `cards`, `empty`, `toast`, `demo`. Every
 primitive and gallery item has a `testID`.
 
@@ -228,7 +228,7 @@ no motion, for docs and the gallery. Render `toast.node` last in the screen's ro
 <DemoNote on="card" />       // inside a parchment card
 ```
 
-The v1 disclosure: a gold DEMO tag and "Posts go to Outpost's demo accounts". `text` overrides the line. Put it once
+The v1 disclosure: a gold DEMO tag and "Posts go to Capypost's demo accounts". `text` overrides the line. Put it once
 per screen that posts or shows posts (Feed, You, Bounties), near the bottom, never over the video. Default `testID`
 is `demo-note`.
 

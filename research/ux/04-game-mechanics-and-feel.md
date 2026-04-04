@@ -1,6 +1,6 @@
-# Game mechanics and game feel: what Outpost can borrow
+# Game mechanics and game feel: what Capypost can borrow
 
-Research date: 12 November 2026. Scope: base builders, idle games, casual event loops, game feel, isometric art, and visible working characters. The last section turns the evidence into rules for Outpost.
+Research date: 12 November 2026. Scope: base builders, idle games, casual event loops, game feel, isometric art, and visible working characters. The last section turns the evidence into rules for Capypost.
 
 ## How to read this file
 
@@ -323,7 +323,7 @@ CC0 packs have a look many players have already seen. Recoloring them, combining
 
 ---
 
-## What carries over to Outpost
+## What carries over to Capypost
 
 ### Base screen
 
@@ -356,8 +356,8 @@ CC0 packs have a look many players have already seen. Recoloring them, combining
 1. Make the return the reward, since there are no push notifications. Pecorella: "the longer you're away... the greater your incentive to return." Neko Atsume built a hit on finding out who came while you were gone.
 2. List the work, then the results. Show videos made, posted and approved, then views gained and sales. The labor illusion says showing the effort raises the value of the result.
 3. Order items from small to large and end on the biggest real number, then drop the user on the base [opinion].
-4. Use honest, real waits. Clash Royale removed artificial timers and its revenue later rose (AppMagic, correlation only). Outpost's waits (rendering, views accruing) are real, so show them as progress, never as gates to pay past.
-5. Give a real reason to open daily. Clash says regular play beats return boosts, which pay "around half." For Outpost, the feed's approvals can be that reason if agents hold drafts for review [opinion, team decision].
+4. Use honest, real waits. Clash Royale removed artificial timers and its revenue later rose (AppMagic, correlation only). Capypost's waits (rendering, views accruing) are real, so show them as progress, never as gates to pay past.
+5. Give a real reason to open daily. Clash says regular play beats return boosts, which pay "around half." For Capypost, the feed's approvals can be that reason if agents hold drafts for review [opinion, team decision].
 
 ### Polish budget, in build order
 
@@ -385,7 +385,7 @@ Leave out, or use rarely:
 4. Visible characters and retention: no measured effect found for animated workers or pets. The labor illusion evidence comes from websites and restaurants.
 5. Supercell retention curves: not public, apart from "retention, retention, retention." The 10% two-year Clash figure is unverified.
 6. Real-outcome stars: no evidence on whether stars tied to real money motivate like game stars, or whether a failed real raid stings more than a failed game raid.
-7. Revenue sparsity: how often a new Outpost user's vault gets a real sale is unknown. That rate decides whether revenue can carry the collect moment.
+7. Revenue sparsity: how often a new Capypost user's vault gets a real sale is unknown. That rate decides whether revenue can carry the collect moment.
 8. Monopoly GO's dice refill rate and the meaning of "70% of players returning every single day" are not officially documented.
 9. Idle Miner Tycoon's offline cap and the conversion rates of "double your offline earnings" offers: not found.
 10. Pokémon GO Research Breakthrough's no-reset rule could not be confirmed on the fetched page.

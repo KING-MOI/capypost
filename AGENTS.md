@@ -1,21 +1,21 @@
 # AGENTS.md
 
-Read this first. It orients any coding agent (Capy, Claude Code, Codex, Cursor) working on Outpost.
+Read this first. It orients any coding agent (Capy, Claude Code, Codex, Cursor) working on Capypost.
 
 Building toward the demo? Read [BUILD_PLAN.md](BUILD_PLAN.md) first: it is the build plan, its wave and file-ownership rules, and the contracts.
 
-## What Outpost is
+## What Capypost is
 
 **Get paid for your taste.** An iOS app where you swipe through AI-made vertical clips cut for real paid brand
 bounties (Whop Content Rewards campaigns). Left kills a clip, an edit chip or short note tweaks it, right approves it.
 An approved clip posts to the user's own social account and its public URL is submitted to the Whop campaign. Whop
-pays the user directly per 1K views, so money never flows through Outpost. A scoreboard shows views, estimated
+pays the user directly per 1K views, so money never flows through Capypost. A scoreboard shows views, estimated
 pending earnings and a taste score; the agent texts the user over iMessage.
 
 ## Direction vs today
 
 The product direction is Charlie's brief, [BRIEF.md](BRIEF.md); read it before product work. The code in
-`outpost/` is the starting point the brief's features get built on: today agents write, voice and render original 3D
+`capypost/` is the starting point the brief's features get built on: today agents write, voice and render original 3D
 explainer videos and post them to YouTube and Instagram. **Code is the truth about what is built. Never describe a
 planned feature as working.**
 
@@ -43,11 +43,11 @@ Don't delete or rip out the studio, shop raid or village. Extend or adapt them t
 
 | Path | What |
 |---|---|
-| `outpost/` | Everything that runs. See `outpost/AGENTS.md` for app/Convex/studio specifics |
-| `outpost/src/` | Expo app. Routes in `outpost/src/app/`, components beside it |
-| `outpost/convex/` | Convex backend. Schema in `convex/schema.ts`; `_generated/` is generated |
-| `outpost/studio/` | Laptop studio worker (`worker.mjs`) and its Compound template |
-| `outpost/docs/` | Architecture, app, backend, integrations, demo runbook (describe today's code, not the brief) |
+| `capypost/` | Everything that runs. See `capypost/AGENTS.md` for app/Convex/studio specifics |
+| `capypost/src/` | Expo app. Routes in `capypost/src/app/`, components beside it |
+| `capypost/convex/` | Convex backend. Schema in `convex/schema.ts`; `_generated/` is generated |
+| `capypost/studio/` | Laptop studio worker (`worker.mjs`) and its Compound template |
+| `capypost/docs/` | Architecture, app, backend, integrations, demo runbook (describe today's code, not the brief) |
 | `research/`, `visuals/`, `engagement-research.md` | Background only, not specs |
 | `hackathon.md` | Convex hackathon build log (`.agents/skills/convex-hackathon-skill`) |
 
@@ -60,7 +60,7 @@ Three runtime parts:
 
 ## Commands
 
-All from `outpost/`. Node 22 (what CI uses), npm.
+All from `capypost/`. Node 22 (what CI uses), npm.
 
 ```sh
 npm ci                              # install
@@ -73,7 +73,7 @@ npx expo run:ios                    # build the dev client (macOS + Xcode); late
 while true; do node studio/worker.mjs; sleep 3; done   # studio worker, laptop only
 ```
 
-CI (`.github/workflows/typecheck.yml`) runs the three checks on PRs touching `outpost/`. `npm test` runs locally
+CI (`.github/workflows/typecheck.yml`) runs the three checks on PRs touching `capypost/`. `npm test` runs locally
 (not in CI yet). There is no lint.
 
 ## Hard rules
@@ -102,19 +102,19 @@ CI (`.github/workflows/typecheck.yml`) runs the three checks on PRs touching `ou
 - The worker calls only the public functions in `convex/studio.ts`, passing `WORKER_SECRET` as `key`, checked
   by `requireWorker()`. Builder-only functions are `internal` (see `convex/admin.ts`).
 - Schema changes go in `convex/schema.ts`; keep fields optional when existing rows lack them.
-- Routes are files in `outpost/src/app/` (Expo Router); keep non-route code outside it.
+- Routes are files in `capypost/src/app/` (Expo Router); keep non-route code outside it.
 
 ## Definition of done
 
 - The three CI checks pass locally and on the PR.
-- Docs updated when behavior changes (`outpost/docs/*`, this file's status table).
+- Docs updated when behavior changes (`capypost/docs/*`, this file's status table).
 - PR body says what changed and what was actually verified (and what wasn't, e.g. "not run on device").
 
 ## Deeper docs
 
 - `BUILD_PLAN.md`: the build plan, wave and file-ownership rules, and the contracts
-- `outpost/README.md`: setup and every environment variable
-- `outpost/docs/architecture.md`: how the parts connect, data model
-- `outpost/docs/backend.md`: every Convex module, crons, admin commands
-- `outpost/docs/app.md`, `outpost/docs/integrations.md`, `outpost/docs/demo-runbook.md`
-- `outpost/studio/README.md`: the studio worker
+- `capypost/README.md`: setup and every environment variable
+- `capypost/docs/architecture.md`: how the parts connect, data model
+- `capypost/docs/backend.md`: every Convex module, crons, admin commands
+- `capypost/docs/app.md`, `capypost/docs/integrations.md`, `capypost/docs/demo-runbook.md`
+- `capypost/studio/README.md`: the studio worker

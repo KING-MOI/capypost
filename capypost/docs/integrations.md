@@ -1,6 +1,6 @@
 # Integrations
 
-Each outside service Outpost uses: what it does for the app, where the code is, what it needs, and its status.
+Each outside service Capypost uses: what it does for the app, where the code is, what it needs, and its status.
 
 ## Summary
 
@@ -14,7 +14,7 @@ Each outside service Outpost uses: what it does for the app, where the code is, 
 | Whop marketplace | The Scout's product search | Convex | Live. Public API, no key |
 | Whop shop | Product, checkout and payments for the shop raid | Convex | Sandbox only. Production is refused in code |
 | Supermemory | Remembers why the user sends videos back | Convex | Live when `SUPERMEMORY_API_KEY` is set |
-| Revyl | Builds each pull request for the iOS simulator and proves it on a cloud iPhone | Revyl cloud, configured by `outpost/.revyl/` | Live. iPhone only |
+| Revyl | Builds each pull request for the iOS simulator and proves it on a cloud iPhone | Revyl cloud, configured by `capypost/.revyl/` | Live. iPhone only |
 | Capy | The coding agents that open pull requests and attach the Revyl proof | Capy | Live |
 
 The `/hood` screen in the app lists the first seven with their role ("Writes each script", "Reads it aloud", "Renders the video", "Stores videos, runs the feed", "Posts videos, reads views", "Store and checkout", "Remembers why you skip"). The list lives in `SERVICES` in `convex/hood.ts`.
@@ -23,7 +23,7 @@ The `/hood` screen in the app lists the first seven with their role ("Writes eac
 
 The whole backend. The app and the studio worker both talk to it, and nothing else.
 
-- **Code.** `outpost/convex/`. See [backend.md](backend.md).
+- **Code.** `capypost/convex/`. See [backend.md](backend.md).
 - **What it holds.** Users, video jobs and their MP4 files (Convex storage), swipes, posts, raids, payments, and a log of every outside call.
 - **What it runs.** The Feed, the post scheduler (`pace.ts`), the posting and view-reading actions, the Scout, Supermemory sync, Whop setup and polling, two crons, and one HTTP route (`POST /whop/webhook`).
 - **Needs.** A deployment. The app reads its URL from `EXPO_PUBLIC_CONVEX_URL`. Server variables are listed in [backend.md](backend.md#environment-variables).
@@ -33,7 +33,7 @@ The whole backend. The app and the studio worker both talk to it, and nothing el
 Writes the script for every video.
 
 - **Code.** `claude()` and `draft()` in `studio/worker.mjs`. The prompt and JSON schema are `system()` and `SCRIPT_SCHEMA` in `studio/reel.mjs`.
-- **How.** The worker spawns the `claude` CLI with `-p --model sonnet --output-format json --json-schema ...`, no tools, no MCP servers and no saved session. It runs from `/tmp/outpost/claude-cwd`. Up to 3 run at once, each with a 60 second limit. `WRITER_MODEL` changes the model.
+- **How.** The worker spawns the `claude` CLI with `-p --model sonnet --output-format json --json-schema ...`, no tools, no MCP servers and no saved session. It runs from `/tmp/capypost/claude-cwd`. Up to 3 run at once, each with a 60 second limit. `WRITER_MODEL` changes the model.
 - **Needs.** The `claude` CLI on the laptop, signed in. There is no Anthropic API key in the project. The planning notes say Claude runs on the builder's subscription.
 - **Inputs.** The niche, the 5 newest taste notes, up to 6 lines Supermemory learned, recent hooks to avoid, and for a remake the old script and the reason.
 - **Rules in the prompt.** Second person or how-to only. No personal claims, results, income or invented statistics. The account sells one product, the $9 Notion client-invoice template.
@@ -54,7 +54,7 @@ Renders each video from a code template.
 - **Code.** `compound` and `render()` in `studio/worker.mjs`, the template in `studio/template/`, and the event layout in `layout()` in `studio/reel.mjs`.
 - **How.** The worker starts `compound mcp` from the Compound Beta app bundle and calls the `open` and `export` tools over JSON-RPC. At start it copies `template/index.tsx` and `template/jobs.ts` into a Compound project folder (`PROJECT_DIR`). Each job is written into that project's `jobs.ts`, keeping the last 8, and exported to an MP4. Exports run one at a time.
 - **Needs.** The Compound Beta app in `/Applications` and the project folder at `PROJECT_DIR`. The worker exits if Compound exits or stops answering for 3 minutes.
-- **More.** [`outpost/studio/README.md`](../studio/README.md) covers the template.
+- **More.** [`capypost/studio/README.md`](../studio/README.md) covers the template.
 
 ## Zernio
 
@@ -111,7 +111,7 @@ Learns the user's taste from the reasons they give for sending videos back.
 
   | Call | Why |
   |---|---|
-  | `POST /v3/documents` | Save a note, in container `outpost_<userId>`, with the Convex note id as `customId` so a resend updates it |
+  | `POST /v3/documents` | Save a note, in container `capypost_<userId>`, with the Convex note id as `customId` so a resend updates it |
   | `POST /v3/documents/documents` | Read the user's notes and the memories made from them |
   | `POST /v4/profile` | Read what Supermemory has learned about the user |
 
@@ -121,8 +121,8 @@ Learns the user's taste from the reasons they give for sending videos back.
 
 ## Revyl
 
-- **What it does.** Builds every app-facing pull request for the iOS simulator, then on a cloud iPhone runs a proof-of-changes agent on the diff and the `outpost-regression` workflow (`.revyl/tests/`). It posts one verdict comment per pull request, with screenshots and a report link.
-- **Code.** `outpost/.revyl/config.yaml` (the `pull-request` build profile, triggers, the proof prompt and workflow) and `outpost/.revyl/tests/`. Config changes are published with `revyl config push`.
+- **What it does.** Builds every app-facing pull request for the iOS simulator, then on a cloud iPhone runs a proof-of-changes agent on the diff and the `capypost-regression` workflow (`.revyl/tests/`). It posts one verdict comment per pull request, with screenshots and a report link.
+- **Code.** `capypost/.revyl/config.yaml` (the `pull-request` build profile, triggers, the proof prompt and workflow) and `capypost/.revyl/tests/`. Config changes are published with `revyl config push`.
 - **Test user.** Proof builds pin `EXPO_PUBLIC_DEVICE_ID`, so every run is one dry-run user on the production backend. `convex/testkit.ts` seeds and purges test users.
 - **Needs.** The Revyl GitHub App on the repository, and `REVYL_API_KEY` for the CLI (`revyl device start`, `revyl build list`).
 - **Status.** Live, iPhone only. See [testing.md](testing.md).

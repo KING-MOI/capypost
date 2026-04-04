@@ -1,6 +1,6 @@
-# AI-content feeds and taste training: what the data says for Outpost
+# AI-content feeds and taste training: what the data says for Capypost
 
-Research date: 12 November 2026. Scope: feeds of AI-generated content, apps that learn taste from swipes or ratings, user-as-creator loops, and novelty decay. Written for the Outpost team.
+Research date: 12 November 2026. Scope: feeds of AI-generated content, apps that learn taste from swipes or ratings, user-as-creator loops, and novelty decay. Written for the Capypost team.
 
 ## How to read this
 
@@ -23,7 +23,7 @@ Every claim has a source tag.
 3. Taste systems need few explicit picks to start and a few hundred signals to settle. Netflix asks for about 3 titles, Pinterest asked for 5 topics, and Midjourney needed 40 ratings to start a profile and 200 for stability.
 4. Showing people what a system learned raises trust and gets shared. The evidence that it raises clicks or retention is weak.
 5. AI creation apps spike and crash within weeks unless the output has an ongoing use. Lensa's revenue fell 92% from its peak in about a month. Suno, whose output people keep using, grew steadily.
-6. Platforms where Outpost posts now label AI content, let viewers turn it down, and demonetize template-like mass-produced AI video. An AI label alone lowers belief in content by a small but real amount.
+6. Platforms where Capypost posts now label AI content, let viewers turn it down, and demonetize template-like mass-produced AI video. An AI label alone lowers belief in content by a small but real amount.
 
 ---
 
@@ -210,15 +210,15 @@ Across products, the curve repeats. A spike comes in weeks 1 to 3, a cliff in we
 
 ---
 
-## What carries over to Outpost
+## What carries over to Capypost
 
-Outpost's feed is different in kind from Sora's or Vibes'. The videos are the user's own. Each one has a job, which is selling a Whop product. A right swipe publishes it. The evidence above says the parts of AI feeds that retained people were making and steering, while the parts that failed were passive watching. Outpost should lean on the first and avoid the second.
+Capypost's feed is different in kind from Sora's or Vibes'. The videos are the user's own. Each one has a job, which is selling a Whop product. A right swipe publishes it. The evidence above says the parts of AI feeds that retained people were making and steering, while the parts that failed were passive watching. Capypost should lean on the first and avoid the second.
 
 ### Rules
 
 1. **Treat the feed as a short daily review queue, not an endless scroll.** Sora and Vibes users came back to create and steer: about 70% of Sora return visits and 52% of returning Vibes users. They did not come back to watch, as Sora's 13 minutes a day and under-8% day-30 retention show. Give each day a fixed batch, for example "9 new videos," and a clear finished state. Measure success as decisions made and money earned, not minutes watched. Even OpenAI said it was not optimizing for time in feed.
 
-2. **Close the loop with real results inside the feed.** The IKEA effect needs completion. Complete builders bid $1.46 against $0.59 for incomplete ones, and destroyed work lost its value. Zhou and Lee found that AI adopters kept making art as favorites per view rose from about 2% to 3%. For Outpost, "posted," "first 1,000 views" and "first sale" are the completion events. Show them on the approved video's card and as the first card of the next session. Without this, a swipe is just a vote into a void.
+2. **Close the loop with real results inside the feed.** The IKEA effect needs completion. Complete builders bid $1.46 against $0.59 for incomplete ones, and destroyed work lost its value. Zhou and Lee found that AI adopters kept making art as favorites per view rose from about 2% to 3%. For Capypost, "posted," "first 1,000 views" and "first sale" are the completion events. Show them on the approved video's card and as the first card of the next session. Without this, a swipe is just a vote into a void.
 
 3. **Keep the swipe binary and log implicit signals too.** Netflix got 200% more ratings when it moved from stars to thumbs. Stitch Fix built 9 billion thumbs ratings, with about 150,000 players a day. TikTok and the WSJ both point to watch time and completion as the strongest signals. Log completion, rewatches, hold-to-2x and the time before a swipe as taste signals alongside left and right.
 
@@ -226,30 +226,30 @@ Outpost's feed is different in kind from Sora's or Vibes'. The videos are the us
 
 5. **Use pairwise "this or that" cards to train taste fast, and be honest about when it is personal.** Midjourney's whole personalization system runs on pair rankings. It started at 40 ratings, became stable at 200, and took about 5 minutes to unlock, which my arithmetic puts at about 1.5 seconds per rating. Pair two hooks or two thumbnails during onboarding and now and then later. Show progress toward a threshold, for example "Taste profile: 23 of 40," and say the profile keeps changing, as Midjourney does with "constantly in flux."
 
-6. **Do not reward swipe volume.** Midjourney had to switch off rating rewards because of abuse, then added bot detection and ban warnings. In Outpost a right swipe publishes in public, so careless swiping causes real harm. Add a skip option (Midjourney has a skip key), a short undo window before posting, and rewards tied to outcomes such as a first sale, not to swipe counts.
+6. **Do not reward swipe volume.** Midjourney had to switch off rating rewards because of abuse, then added bot detection and ban warnings. In Capypost a right swipe publishes in public, so careless swiping causes real harm. Add a skip option (Midjourney has a skip key), a short undo window before posting, and rewards tied to outcomes such as a first sale, not to swipe counts.
 
 7. **Show what the memory learned in plain words, let users edit it, and make it shareable.** Instagram's "Your Algorithm" gives an AI-written summary plus topic controls plus share to Stories. TikTok has "Why this video" and topic sliders. Spotify Wrapped reached 200 million users in 24 hours and 500 million shares. Herlocker found 86% of users wanted explanations. Expect trust and shares, not more swipes: the 97,845-user news test found a negligible click effect. Keep the summary concrete and data-based. Wrapped 2024 was criticized for leaning on an AI podcast over real stats.
 
-8. **Put a one-line reason on each video that names the user's input.** In the ghostwriter studies, people with more influence over AI text felt more ownership. Gai and Klesse found that a "people like you" framing raised clicks in the field. Spotify said spoken context made listeners "more willing to try something new." An example line: "Made because you approved 3 desk-setup videos and said 'shorter hooks.'" This turns the agents' work into the user's work, which is the closest Outpost gets to the IKEA effect.
+8. **Put a one-line reason on each video that names the user's input.** In the ghostwriter studies, people with more influence over AI text felt more ownership. Gai and Klesse found that a "people like you" framing raised clicks in the field. Spotify said spoken context made listeners "more willing to try something new." An example line: "Made because you approved 3 desk-setup videos and said 'shorter hooks.'" This turns the agents' work into the user's work, which is the closest Capypost gets to the IKEA effect.
 
 9. **Build variety in on purpose.** YouTube will not monetize template-like, interchangeable AI videos. TikTok now lets viewers turn AI content down. Zhou and Lee found novelty drops over time with AI, and TikTok avoids back-to-back videos with the same sound or creator. Have the agents rotate format, hook style and product angle. Reserve a small, labeled share of each batch for experiments. TikTok told the WSJ it uses about 7% of the feed for discovery.
 
 10. **Label AI content on every publish and expect a small cost.** YouTube requires disclosure for realistic synthetic content, and Meta and TikTok apply labels automatically from metadata. An AI label cut belief by about 2.66 points even for true content. 76% of Americans want to know what is AI. Apply each platform's AI disclosure by default. Favor formats where being AI-made is not the point, such as product demos, explainers and text-led videos.
 
-11. **Make the user's business the personal element, not their face.** Sora's internal feed turned into "entirely cameos," but users later balked at sharing their likeness. For Outpost, the user's product name, brand and earnings play the "you" role. If face or voice clones are offered, keep them opt-in and private by default.
+11. **Make the user's business the personal element, not their face.** Sora's internal feed turned into "entirely cameos," but users later balked at sharing their likeness. For Capypost, the user's product name, brand and earnings play the "you" role. If face or voice clones are offered, keep them opt-in and private by default.
 
 12. **Notify only for real events.** On Vibes, the 40% of daily users pushed in by app prompts interacted less, while users who had generated something came back at about 60%. Notify when a batch is ready, a post passes a view milestone, or a sale happens. Do not send generic "come watch" nudges.
 
 13. **Plan for the week 4 to 8 cliff and cap generation cost.** Lensa lost 92% of its revenue in about 4 weeks, AI photo apps lost about 78% of downloads in 2 months, and Sora's downloads fell 32% and then 45%. Sora reportedly cost $1 million a day against about $2.1 million in lifetime revenue. Keep the daily batch small and let swipe data cut wasted renders. Track week-4 and week-8 retention from day one.
 
-### Risks, and how Outpost's feed should differ
+### Risks, and how Capypost's feed should differ
 
 - **Risk: it becomes a slop feed.** If the videos look interchangeable, users will feel what Social Media Today said of Vibes: "stuff to look at" with no concept behind it. YouTube may also demonetize the channel. The mitigation is rules 9 and 2: forced variety, plus results that show which videos work.
 - **Risk: public underperformance turns the loop negative.** Showing results cuts both ways. A run of zero-view posts could make users quit faster than no data at all. I found no data on this. Consider framing early results as tests and comparing each video with the user's own baseline.
 - **Risk: weak ownership.** A swipe is light labor, and the ghostwriter effect says people do not feel they own AI output they barely shaped. The mitigation is rule 8, plus left-swipe reasons that visibly change the next batch.
-- **Risk: copyright and likeness limits remove the fun content.** Sora lost its popular characters when it switched to opt-in. Outpost should avoid relying on third-party IP or real people's likeness from the start.
+- **Risk: copyright and likeness limits remove the fun content.** Sora lost its popular characters when it switched to opt-in. Capypost should avoid relying on third-party IP or real people's likeness from the start.
 - **Risk: brand damage from one bad post.** Approval means publishing. One embarrassing video posted by mistake could end trust. The mitigation is the undo window, a "not sure" skip, and conservative defaults for new users.
-- **Difference from Sora and Vibes.** Those feeds asked people to watch strangers' AI videos for fun. Outpost asks people to make quick business decisions about their own videos and then see the outcome. The closest analogs that held up are Stitch Fix's style game, Midjourney's ranking, Suno's creation habit and Hinge's single daily pick. Each pairs a small, repeatable judgment with a concrete payoff.
+- **Difference from Sora and Vibes.** Those feeds asked people to watch strangers' AI videos for fun. Capypost asks people to make quick business decisions about their own videos and then see the outcome. The closest analogs that held up are Stitch Fix's style game, Midjourney's ranking, Suno's creation habit and Hinge's single daily pick. Each pairs a small, repeatable judgment with a concrete payoff.
 
 ---
 
@@ -264,7 +264,7 @@ Outpost's feed is different in kind from Sora's or Vibes'. The videos are the us
 - Whether IKEA-type effects apply to curation-only work such as approve or reject: [not found].
 - Vibes performance after November 2025, and any Vibes retention curve: [not found].
 - Spotify's measured lift from its onboarding artist picker, and Pinterest's figure at source: not verifiable (Pinterest's page blocked my fetch).
-- Outpost's own cost per generated video, which decides how big a daily batch can be.
+- Capypost's own cost per generated video, which decides how big a daily batch can be.
 
 ---
 

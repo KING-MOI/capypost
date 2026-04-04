@@ -1,6 +1,6 @@
-# Outpost app
+# Capypost app
 
-This folder is the whole product: the iOS app, the Convex backend and the laptop studio worker. For what Outpost is, see the [top-level README](../README.md).
+This folder is the whole product: the iOS app, the Convex backend and the laptop studio worker. For what Capypost is, see the [top-level README](../README.md).
 
 | Folder | What it is |
 |---|---|
@@ -30,7 +30,7 @@ This folder is the whole product: the iOS app, the Convex backend and the laptop
 Install dependencies once:
 
 ```sh
-cd outpost
+cd capypost
 npm ci
 ```
 
@@ -38,10 +38,10 @@ npm ci
 
 | Part | Variable | Where it is set | What it is |
 |---|---|---|---|
-| App | `EXPO_PUBLIC_CONVEX_URL` | `outpost/.env.local` | The Convex deployment URL. Built into the app |
+| App | `EXPO_PUBLIC_CONVEX_URL` | `capypost/.env.local` | The Convex deployment URL. Built into the app |
 | App | `EXPO_PUBLIC_DEVICE_ID` | Build env, optional | Pins the device id, so every install of the build is one user. Only the Revyl proof builds set it (`.revyl/config.yaml`). At least 43 letters, digits, `-` or `_` |
 | Studio worker | `EXPO_PUBLIC_CONVEX_URL` or `CONVEX_URL` | `.env.local`, or the shell | Same URL. `CONVEX_URL` in the shell wins |
-| Studio worker | `WORKER_SECRET` | `outpost/.env.worker`, or the shell | Must match the Convex variable of the same name |
+| Studio worker | `WORKER_SECRET` | `capypost/.env.worker`, or the shell | Must match the Convex variable of the same name |
 | Studio worker | `WRITER_MODEL` | Shell, optional | The Claude model for scripts. Default `sonnet` |
 | Convex | `WORKER_SECRET`, `MAX_USERS`, `ZERNIO_API_KEY`, `WHOP_API_KEY`, `WHOP_ENV`, `WHOP_WEBHOOK_SECRET`, `PUBLIC_SITE_URL`, `SUPERMEMORY_API_KEY`, `WHOP_CLIENT_ID`, `WHOP_CLIENT_SECRET`, `WHOP_OAUTH_REDIRECT` | `npx convex env set` | See [backend.md](docs/backend.md#environment-variables) |
 
@@ -52,7 +52,7 @@ Git ignores every `.env*` file except `.env.example`. The worker reads only `NAM
 Push the functions and watch for changes:
 
 ```sh
-cd outpost
+cd capypost
 npx convex dev
 ```
 
@@ -84,7 +84,7 @@ The app uses native modules (widgets, secure store, video), so it runs in a deve
 ### iOS simulator
 
 ```sh
-cd outpost
+cd capypost
 npx expo run:ios
 ```
 
@@ -93,13 +93,13 @@ This generates the native project, builds the dev client, installs it on a simul
 ### Release build on a phone
 
 ```sh
-cd outpost
+cd capypost
 npx expo run:ios --configuration Release --device
 ```
 
 Pick the phone from the list. A Release build bundles the JavaScript, so it runs without Metro or the laptop. `EXPO_PUBLIC_CONVEX_URL` is fixed at build time, so rebuild after changing it. The phone needs Developer Mode on, and Xcode needs a signing team for the app and its widget.
 
-The home-screen widget ("Outpost") is part of the build. Add it from the home screen's widget gallery.
+The home-screen widget ("Capypost") is part of the build. Add it from the home screen's widget gallery.
 
 ### Checks
 
@@ -109,7 +109,7 @@ npx tsc --noEmit -p convex   # Convex functions
 node --check studio/worker.mjs
 ```
 
-CI runs the same three on every pull request that touches `outpost/`. Revyl also builds those pull requests for the iOS simulator (iPhone only), runs a proof-of-changes agent and the `outpost-regression` workflow on a cloud iPhone as a dry-run test user, and posts one verdict comment. Pull requests that touch only `convex/`, `studio/`, `docs/` or Markdown are skipped. To re-run, push a commit (an empty one works) or have a collaborator comment `@revyl rerun <guidance>`; Revyl ignores the comment from bots. See [docs/testing.md](docs/testing.md).
+CI runs the same three on every pull request that touches `capypost/`. Revyl also builds those pull requests for the iOS simulator (iPhone only), runs a proof-of-changes agent and the `capypost-regression` workflow on a cloud iPhone as a dry-run test user, and posts one verdict comment. Pull requests that touch only `convex/`, `studio/`, `docs/` or Markdown are skipped. To re-run, push a commit (an empty one works) or have a collaborator comment `@revyl rerun <guidance>`; Revyl ignores the comment from bots. See [docs/testing.md](docs/testing.md).
 
 ## The studio worker
 
@@ -121,10 +121,10 @@ Before starting it, the laptop needs:
 - the Python with Kokoro at the path in `PY`,
 - `ffmpeg` and the `claude` CLI on the `PATH`.
 
-Start it from `outpost/`, in a loop, because it exits on purpose when Compound or the voice server dies:
+Start it from `capypost/`, in a loop, because it exits on purpose when Compound or the voice server dies:
 
 ```sh
-cd outpost
+cd capypost
 while true; do node studio/worker.mjs; sleep 3; done
 ```
 

@@ -1,6 +1,6 @@
-# BUILD_PLAN.md: Outpost build map for the Captain
+# BUILD_PLAN.md: Capypost build map for the Captain
 
-Read order for any thread: this file, then `AGENTS.md`, then `BRIEF.md`, then `outpost/AGENTS.md`. This file is the
+Read order for any thread: this file, then `AGENTS.md`, then `BRIEF.md`, then `capypost/AGENTS.md`. This file is the
 plan; `BRIEF.md` is the product; `AGENTS.md` is the rules and what is built today. If they disagree on product,
 `BRIEF.md` wins. If they disagree on what exists, the code wins.
 
@@ -11,7 +11,7 @@ Patched by T1 to match Charlie's master prompt (`handoffs/COORDINATOR.md` in the
 section 13): v1 uses hard-coded demo accounts with no sign-in or connect UI; bounties come from the Content
 Rewards public catalog and submit with one tap on Whop (no Whop OAuth or token); a pregenerated demo library
 fills the Feed on Take; Kakai/iMessage (T10), T3 and T12 are dropped; T14 and T15 are added; priorities and merge
-order changed. Exact signatures live in [`outpost/docs/contracts.md`](outpost/docs/contracts.md).
+order changed. Exact signatures live in [`capypost/docs/contracts.md`](capypost/docs/contracts.md).
 
 ---
 
@@ -19,8 +19,8 @@ order changed. Exact signatures live in [`outpost/docs/contracts.md`](outpost/do
 
 Turn today's app (agents make original vertical videos, you swipe to post them to YouTube/Instagram) into the
 brief: **get paid for your taste**. With no sign-in, the user picks paid Whop bounties in an in-app marketplace,
-Outpost's studio makes videos for those bounties, the user swipes (left = kill/remake, chip = tweak, right =
-approve), approved videos post to Outpost's demo Instagram and YouTube through Zernio, the user submits the
+Capypost's studio makes videos for those bounties, the user swipes (left = kill/remake, chip = tweak, right =
+approve), approved videos post to Capypost's demo Instagram and YouTube through Zernio, the user submits the
 public post URL to the campaign with one tap ("Submit on Whop"), and a scoreboard shows views, estimated pending
 earnings, review status and a taste score. For the demo, each bounty has 10 videos pregenerated ahead of time, so
 Take fills the Feed instantly.
@@ -31,7 +31,7 @@ Take fills the Feed instantly.
 |---|---|---|
 | Backend, data, files, crons, webhooks | Convex | Built |
 | AI (scripts, generation briefs, moment picking, agent) | Claude (`claude -p` in the studio, which also writes each bounty's generation brief) | Built (studio scripts) |
-| Video making | The existing laptop studio (`outpost/studio/`), extended | Built (original mode) |
+| Video making | The existing laptop studio (`capypost/studio/`), extended | Built (original mode) |
 | Posting + view counts | Zernio | Built (YouTube + Instagram) |
 | Bounties | Content Rewards public catalog JSON API (read-only, no login) | Not built |
 | Submissions, payouts | One-tap "Submit on Whop" deep link; Whop pays the user | Not built |
@@ -45,14 +45,14 @@ stops and asks the Captain.
 
 ## 3. What exists today (verified by reading the repo)
 
-- `outpost/src/`: Expo SDK 58 iOS app. Tabs: Base (pixel village, `Base.tsx`), Feed (`Feed.tsx`, 700 lines,
+- `capypost/src/`: Expo SDK 58 iOS app. Tabs: Base (pixel village, `Base.tsx`), Feed (`Feed.tsx`, 700 lines,
   swipe right = post, left = reason picker -> remake), You (`You.tsx`, streak, views). `/hood` = call log. App
   talks only to Convex, identity is a keychain `deviceId` (`session.tsx`, `device.ts`).
-- `outpost/convex/`: 16 tables (`schema.ts`). Feed (`feed.ts`), studio job queue (`studio.ts`), Zernio posting
+- `capypost/convex/`: 16 tables (`schema.ts`). Feed (`feed.ts`), studio job queue (`studio.ts`), Zernio posting
   with pacing and `dryRun/private/public` modes (`post.ts`, `pace.ts`), views every 20 min (`views.ts`), Whop
   product search "Scout" with no key (`scout.ts`), Whop sandbox shop raid (`raids.ts`, `whop.ts`), Supermemory
   (`memory.ts`), one HTTP route `POST /whop/webhook` (`http.ts`), 2 crons (`crons.ts`).
-- `outpost/studio/`: laptop Node worker. `claude -p` writes a script (`reel.mjs` `SCRIPT_SCHEMA`), Kokoro voices
+- `capypost/studio/`: laptop Node worker. `claude -p` writes a script (`reel.mjs` `SCRIPT_SCHEMA`), Kokoro voices
   it (`voice.py`), Compound renders it, MP4 uploads to Convex. macOS-only paths. Cannot run in a cloud sandbox.
 - Not built: bounties, Whop login, submissions, clip mode, earnings, taste score, iMessage, TikTok, per-user
   social connect (today `admin.linkZernio` links the builder's Zernio accounts to a user by hand).
@@ -98,10 +98,10 @@ deep link. Never scrape cookies or automate Whop's web UI.
 | D1 | Bounty source | Content Rewards public catalog JSON API (`contentrewards.com/api/campaign/campaigns` and `/campaigns/<id>`, no login; real live campaigns, see `reports/W0.md`). Submission is a one-tap "Submit on Whop" that opens the campaign (`manual` submission rows). No Whop OAuth, token or auto-submit in v1 | Whop opens third-party submission |
 | D2 | Video type | Two studio modes: `original` (today's pipeline, bounty-aware) and `clip` (cut provided footage). Bounty's mode decides | If chosen demo bounties are all one type, finish that mode first |
 | D3 | Platforms | YouTube + Instagram via Zernio (works today). Add `tiktok` to the platform union now, wire it only if time allows | Human confirms Zernio TikTok views are usable |
-| D4 | Accounts | Demo accounts: every user gets Outpost's demo Instagram and YouTube (@lgtmboss, connected in Zernio) automatically, server-side, via `demo.attachDemoAccounts` in `ensureUser` reading `DEMO_CONNECTIONS`. Per-user social connect is out of scope for v1 | After v1 (seam: per-user `connections`) |
+| D4 | Accounts | Demo accounts: every user gets Capypost's demo Instagram and YouTube (@lgtmboss, connected in Zernio) automatically, server-side, via `demo.attachDemoAccounts` in `ensureUser` reading `DEMO_CONNECTIONS`. Per-user social connect is out of scope for v1 | After v1 (seam: per-user `connections`) |
 | D5 | Earnings model | Support both `per_submission` (flat, Bounties API) and `per_view` (Content Rewards) | n/a |
 | D6 | iMessage | Dropped for v1: no Kakai, no `notify`/`agent` code, no webhook (`messages` table kept, unused) | After v1 |
-| D7 | Identity | Keep `deviceId`. No sign-in and no Connect Whop. `whopAuth.tokenFor(userId)` stays as a seam returning null. The app shows a small "Demo: posts go to Outpost's demo accounts" note | After v1 (seam: `tokenFor(userId)`) |
+| D7 | Identity | Keep `deviceId`. No sign-in and no Connect Whop. `whopAuth.tokenFor(userId)` stays as a seam returning null. The app shows a small "Demo: posts go to Capypost's demo accounts" note | After v1 (seam: `tokenFor(userId)`) |
 | D8 | Demo library | Up to 10 real live campaigns (original videos allowed, budget left, YouTube or Instagram allowed, no AI ban, no pre-approval), 10 videos each, made ahead of time on the laptop by a dedicated library user. Take clones the bounty's ready videos into the user's Feed (same storage file, `pregenerated` flag, labeled "Pregenerated for the demo"). Edits still queue real remakes | Fewer than 10 campaigns qualify: use fewer, never fake |
 
 ## 6. Architecture after this build
@@ -256,7 +256,7 @@ one PR, so Wave 2 threads only touch files they own and merge independently.
 **T1. Contracts and scaffolding** (blocks Wave 2; keep it small, merge fast)
 - Owns: `convex/schema.ts`, `convex/http.ts`, `convex/crons.ts`, new stub files `bounties.ts`, `whopAuth.ts`,
   `submit.ts`, `earnings.ts`, `sources.ts`, `demo.ts`, `convex/_generated/*`,
-  `outpost/docs/contracts.md`, `hood.ts` `SERVICES`, the `attachDemoAccounts` call in `feed.ensureUser`, and
+  `capypost/docs/contracts.md`, `hood.ts` `SERVICES`, the `attachDemoAccounts` call in `feed.ensureUser`, and
   `refill` in `lib.ts` (Revyl's `revyl-proof-` users rank behind real users).
 - Do: add everything in section 7 exactly. Stubs return empty/no-op values with correct types. Add `tiktok` to
   the platform union without adding it to `PLATFORMS` in `lib.ts`. Add Content Rewards to `SERVICES` in `hood.ts`.
@@ -352,7 +352,7 @@ to T4.
 **T10. iMessage agent**: dropped for v1 (no Kakai, no `agent.ts`/`notify.ts`, no webhook).
 
 **T11. Docs + hood + demo runbook** (P1, can start right after T1)
-- Owns: `outpost/docs/*` (except `contracts.md`, the Captain's after T1, and `design.md`, T14's), `README.md`,
+- Owns: `capypost/docs/*` (except `contracts.md`, the Captain's after T1, and `design.md`, T14's), `README.md`,
   root `AGENTS.md` status table, `convex/hood.ts` (after T1's edit).
 - Do: describe new flows as they merge; update status table honestly; extend the demo runbook for Wave 3.
 
@@ -363,7 +363,7 @@ to T4.
 
 **T14. Design system + polish** (P0)
 - Owns: `src/ui/` (new primitives: cards, chips, buttons, badges, number tickers, empty states),
-  `outpost/docs/design.md` (new).
+  `capypost/docs/design.md` (new).
 - Do: start early so screen threads reuse the primitives; match the pixel village, Jersey fonts, sounds and
   haptics. After the P0 screens merge, one polish pass that files small fixes to the owning threads. Every
   app-facing PR includes Revyl screenshots.
@@ -371,7 +371,7 @@ to T4.
 **T15. Source fetcher** (P0 if any demo bounty is a clip bounty, else P1)
 - Owns: `studio/sources.mjs` (new), `convex/sources.ts`. Never edits `worker.mjs` (T5 does); progress functions
   the worker calls go in `studio.ts` (T6 adds them on request).
-- Do: on the laptop, download each bounty source once into `/tmp/outpost/sources/<hash>` (`yt-dlp` for YouTube and
+- Do: on the laptop, download each bounty source once into `/tmp/capypost/sources/<hash>` (`yt-dlp` for YouTube and
   most hosts, `gdown` or equivalent for Google Drive, plain HTTP for direct links, Dropbox `?dl=1`). Validate with
   `ffprobe` (duration, resolution, audio). Record status, duration, local key and errors in `sources` rows. Login
   walls and private Drive files mark the source `blocked` with a reason. Only finished clips upload to Convex.

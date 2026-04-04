@@ -1,6 +1,6 @@
 # The app
 
-The app is an Expo Router app in `outpost/src/`. Routes are files under `src/app/`. Screens and shared pieces sit next to it in `src/`. The app only talks to Convex. The functions it calls are listed in [backend.md](backend.md).
+The app is an Expo Router app in `capypost/src/`. Routes are files under `src/app/`. Screens and shared pieces sit next to it in `src/`. The app only talks to Convex. The functions it calls are listed in [backend.md](backend.md).
 
 ## Routes
 
@@ -13,7 +13,7 @@ The app is an Expo Router app in `outpost/src/`. Routes are files under `src/app
 | `/hood` | `src/app/hood.tsx` | Under the hood, full-screen modal | `src/Hood.tsx` |
 | `/create` | `src/app/create.tsx` | Create: suggestion prompts and the staged generation | `src/Create.tsx` |
 | `/generations` | `src/app/generations.tsx` | Progress of staged and studio videos | `src/Generations.tsx` |
-| `/ui-gallery` | `src/app/ui-gallery.tsx` | Every design-system primitive in its states (`?only=<section>` for one). Reached only by the `outpost://ui-gallery` link | `src/ui/Gallery.tsx` |
+| `/ui-gallery` | `src/app/ui-gallery.tsx` | Every design-system primitive in its states (`?only=<section>` for one). Reached only by the `capypost://ui-gallery` link | `src/ui/Gallery.tsx` |
 
 `src/app/_layout.tsx` is the root. It loads the Jersey pixel fonts, creates the Convex client from `EXPO_PUBLIC_CONVEX_URL`, sets the audio session to play with the ring switch off, and wraps everything in `Session`. The Away card (`src/Away.tsx`) and the widget sync (`src/WidgetSync.tsx`) mount here too, so they work over any tab.
 
@@ -24,11 +24,11 @@ The app is an Expo Router app in `outpost/src/`. Routes are files under `src/app
 1. `src/session.tsx` holds the splash screen.
 2. `src/device.ts` reads or makes the device id in the keychain, unless the build pins one with `EXPO_PUBLIC_DEVICE_ID`.
 3. `feed.ensureUser` finds or creates the user. This also fills the video queue and may start a Scout search.
-4. The splash hides. If Convex is slow, it hides after 4 seconds and the screen says "Opening the outpost…". If the user cap is hit, it shows "Outpost is full right now."
+4. The splash hides. If Convex is slow, it hides after 4 seconds and the screen says "Opening the capypost…". If the user cap is hit, it shows "Capypost is full right now."
 
 ## Base (`/`)
 
-The Base is a pixel-art village (`assets/base/`, drawn by the scripts in `outpost/art/`). Each building stands for a part of the business.
+The Base is a pixel-art village (`assets/base/`, drawn by the scripts in `capypost/art/`). Each building stands for a part of the business.
 
 ### Header
 
@@ -207,7 +207,7 @@ Tap anywhere to show every line at once. **Collect** plays a chime and calls `aw
 
 ## Home-screen widget
 
-`src/widgets/Overnight.tsx` is an iOS widget named "Outpost" in small and medium sizes, set up by the `expo-widgets` plugin in `app.json`. It shows the streak, whether today is kept, the videos waiting, total views, and the views gained, videos made, posts and sales since the last Collect. Rows that would say 0 are left out.
+`src/widgets/Overnight.tsx` is an iOS widget named "Capypost" in small and medium sizes, set up by the `expo-widgets` plugin in `app.json`. It shows the streak, whether today is kept, the videos waiting, total views, and the views gained, videos made, posts and sales since the last Collect. Rows that would say 0 are left out.
 
 The widget can't fetch, so `src/WidgetSync.tsx` pushes a new timeline whenever the numbers change. The timeline has an entry for now and one for each of the next few midnights, each showing today not kept yet and the streak as it will stand that day.
 

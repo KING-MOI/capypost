@@ -1,4 +1,4 @@
-# Daily return: how apps get opened every day, and what Outpost can copy without push
+# Daily return: how apps get opened every day, and what Capypost can copy without push
 
 Scope: Duolingo, Snapchat, BeReal, Wordle and NYT Games, Candle, Finch, Locket, Co-Star, Spotify, Headspace and Calm, Gas, tbh and NGL, Pokémon GO, research on habits and streaks, and iOS return triggers that work with a free Apple ID.
 
@@ -26,7 +26,7 @@ I read company posts, filings, Apple docs and papers directly where I could. Par
 5. Widgets, Live Activities, local notifications, calendar events and background refresh all work with a free Apple ID. Remote push, widget push and Live Activity push do not. Apple's capability table gives the free tier App Groups and Background Modes but not Push Notifications. [primary] [Apple capabilities](https://developer.apple.com/help/account/reference/supported-capabilities-ios) Local notifications are not push. Apple's `add(_:)` call "schedules local notifications only." [primary] [Apple](https://developer.apple.com/documentation/usernotifications/unusernotificationcenter/add(_:withcompletionhandler:))
 6. A widget on a home screen the user often sees gets 40 to 70 refreshes a day, about every 15 to 60 minutes. Timeline entries can change what it shows at set times with no network call. [primary] [Apple WidgetKit](https://developer.apple.com/documentation/widgetkit/keeping-a-widget-up-to-date)
 7. One-a-day scarcity drives sharing and ritual. Wordle went from 90 players on 1 Nov 2021 to over 300,000 on 2 Jan 2022 and over 2 million a week later, after the share grid shipped on 16 Dec 2021. [journalism] [Guardian](https://www.theguardian.com/games/2022/jan/11/wordle-creator-overwhelmed-by-global-success-of-hit-puzzle) [primary] [Wardle tweet](https://x.com/powerlanguish/status/1471493886031773707) Its creator credits "limiting players to one game per day." [journalism] [NYT via Daring Fireball](https://daringfireball.net/linked/2022/01/05/wordle)
-8. Scarcity alone does not hold people. BeReal's daily users fell from about 15M in Oct 2022 to under 6M in Mar 2023, per Apptopia. [journalism] [NYT](https://www.nytimes.com/2023/04/13/style/bereal-app.html) BeReal also depends on a push alert that Outpost cannot send.
+8. Scarcity alone does not hold people. BeReal's daily users fell from about 15M in Oct 2022 to under 6M in Mar 2023, per Apptopia. [journalism] [NYT](https://www.nytimes.com/2023/04/13/style/bereal-app.html) BeReal also depends on a push alert that Capypost cannot send.
 9. Daily return compounds into revenue. Duolingo reported 64.9M DAU and 153.1M MAU for Q3 2026. [primary] [Q3 2026 letter](https://www.sec.gov/Archives/edgar/data/0001562088/000162828026069474/q3fy26duolingo9-30x26share.htm) That is a DAU/MAU of about 42%, up from about 37% a year earlier. [my arithmetic]
 
 ## Duolingo
@@ -73,7 +73,7 @@ I read company posts, filings, Apple docs and papers directly where I could. Par
 | Streak experiments | Over 600 in four years; about half lose | [company-reported] [podcast](https://github.com/ChatPRD/lennys-podcast-transcripts/blob/main/episodes/jackson-shuttleworth/transcript.md) |
 | Notification bandit | +0.5% DAU and +2% new-user retention | [academic] [Yancey & Settles, KDD 2020](https://research.duolingo.com/papers/yancey.kdd20.pdf) |
 
-The bandit paper matters for Outpost. Duolingo picks among reminder templates and penalizes recently used ones, because repeated templates lose their effect. The paper calls these "recovering" arms. [academic] [Yancey & Settles](https://research.duolingo.com/papers/yancey.kdd20.pdf)
+The bandit paper matters for Capypost. Duolingo picks among reminder templates and penalizes recently used ones, because repeated templates lose their effect. The paper calls these "recovering" arms. [academic] [Yancey & Settles](https://research.duolingo.com/papers/yancey.kdd20.pdf)
 
 A widely repeated claim says the iOS widget raised "user commitment by 60%." I found no Duolingo source for it. Don't cite it. [not found]
 
@@ -102,7 +102,7 @@ A widely repeated claim says the iOS widget raised "user commitment by 60%." I f
 ### Downsides
 
 - The same study linked streaks to problematic smartphone use, with t(1925) = 6.22 and p < 0.001. Fear of missing out correlated with streak length at r = 0.175. The authors call all effects "relatively small." [academic] [van Essen & Van Ouytsel 2023](https://doi.org/10.1016/j.teler.2023.100087)
-- Snap streaks are social. Your friend can break them, and you feel responsible to them. Outpost has no friend on the other side.
+- Snap streaks are social. Your friend can break them, and you feel responsible to them. Capypost has no friend on the other side.
 
 ## BeReal
 
@@ -129,7 +129,7 @@ A widely repeated claim says the iOS widget raised "user commitment by 60%." I f
 ### Downsides
 
 - The NYT reports users found the daily post monotonous after the novelty wore off. [journalism] [NYT](https://www.nytimes.com/2023/04/13/style/bereal-app.html)
-- The whole loop rests on a push alert at an unknown time. Without push, Outpost can't copy the random window. A fixed daily time is the version that works without push.
+- The whole loop rests on a push alert at an unknown time. Without push, Capypost can't copy the random window. A fixed daily time is the version that works without push.
 
 ## Wordle and NYT Games
 
@@ -231,7 +231,7 @@ The low-stakes design trades urgency for calm. I found no data on whether the ab
 
 ### What it means without push
 
-Locket's "instant" widget updates almost certainly use push to reload the widget. That is my inference from Apple's docs, which offer WidgetKit push updates through APNs. [opinion] [Apple](https://developer.apple.com/documentation/widgetkit/keeping-a-widget-up-to-date) Without push, an Outpost widget updates on the 15 to 60 minute budget. That's fine for "results since yesterday" but not for real-time chat.
+Locket's "instant" widget updates almost certainly use push to reload the widget. That is my inference from Apple's docs, which offer WidgetKit push updates through APNs. [opinion] [Apple](https://developer.apple.com/documentation/widgetkit/keeping-a-widget-up-to-date) Without push, an Capypost widget updates on the 15 to 60 minute budget. That's fine for "results since yesterday" but not for real-time chat.
 
 ## Co-Star
 
@@ -245,7 +245,7 @@ Locket's "instant" widget updates almost certainly use push to reload the widget
 
 Co-Star reported more than 20 million downloads at its April 2021 Series A. [company-reported] [Axios](https://www.axios.com/astrology-app-co-star-raises-15-million-funding-906179f9-b3db-40d8-88c0-883e121fab9d.html) I found no DAU or retention data. [not found]
 
-### For Outpost
+### For Capypost
 
 Co-Star shows that a short, personal, new-today text can be the reason to open. Its delivery depends on push, though.
 
@@ -306,7 +306,7 @@ Even the category leaders sit in a category where almost everyone leaves within 
 ### Lessons
 
 - Novelty spikes fade within months. Both tbh and Gas closed within about a year of their peaks. [my arithmetic from dates above]
-- Faking engagement to drive returns is a legal risk. For Outpost, never show invented views, sales or "someone liked this."
+- Faking engagement to drive returns is a legal risk. For Capypost, never show invented views, sales or "someone liked this."
 
 ## Pokémon GO
 
@@ -322,7 +322,7 @@ Even the category leaders sit in a category where almost everyone leaves within 
 - Engaged players walked 1,473 more steps a day over 30 days, a gain of more than 25%. The study covered 32,000 users. [academic] [Althoff, White & Horvitz, JMIR 2016](https://doi.org/10.2196/jmir.6759) [arXiv](https://arxiv.org/abs/1610.02085)
 - A BMJ difference-in-differences study looked at whether the effect faded. I couldn't open it, so I'm not quoting its numbers. [not found] [Howe et al., BMJ 2016](https://doi.org/10.1136/bmj.i6270)
 
-### For Outpost
+### For Capypost
 
 - The 7-day cycle gives a bigger reward for consistency without wiping out progress.
 - The 7-stamp breakthrough rewards seven active days, not seven in a row. It is a forgiving weekly goal.
@@ -381,7 +381,7 @@ Even the category leaders sit in a category where almost everyone leaves within 
 | Subscribable calendar feed | Yes. It's server-side and needs no app capability. | The user subscribes once. Calm did this for Daily Calm challenges. I didn't verify whether iOS keeps alerts on subscribed calendars. [not found] | [primary] [Calm](https://www.calm.com/blog/2020-daily-calm-calendar) |
 | Shortcuts personal automation | Yes, but the user has to build it | A "Time of Day" automation can run without asking. The app can expose App Shortcuts, which Shortcuts finds automatically. | [primary] [Apple support](https://support.apple.com/guide/shortcuts/create-a-new-personal-automation-apdfbdbd7123/ios), [App Shortcuts](https://developer.apple.com/documentation/appintents/app-shortcuts) |
 | AlarmKit alarms | Technically, on iOS 26 and later | AlarmKit is built for alarms and timers. Using it for a daily product nudge would misuse it. | [primary] [AlarmKit](https://developer.apple.com/documentation/alarmkit), [opinion] |
-| Notifications from TikTok, YouTube and Instagram | Outside Apple's control | When agents post to the user's own accounts, those apps notify the user about views and comments. That may pull the user back to Outpost to see results. It's untested. | [opinion] |
+| Notifications from TikTok, YouTube and Instagram | Outside Apple's control | When agents post to the user's own accounts, those apps notify the user about views and comments. That may pull the user back to Capypost to see results. It's untested. | [opinion] |
 
 ### Expo specifics
 
@@ -397,7 +397,7 @@ Even the category leaders sit in a category where almost everyone leaves within 
 
 The app stops launching 7 days after install unless it's rebuilt. [primary] [Apple](https://developer.apple.com/help/account/basics/about-your-developer-account) A real multi-week retention test on testers' phones needs either weekly reinstalls or the paid program, which brings TestFlight.
 
-## What carries over to Outpost
+## What carries over to Capypost
 
 Each rule names the evidence. Where a number in the rule is my own pick rather than measured, I say so.
 
@@ -457,6 +457,6 @@ Each rule names the evidence. Where a number in the rule is my own pick rather t
 - Scheduled Live Activities need iOS 26 or later. I didn't check what share of the team's demo phones run it.
 - I didn't verify whether iOS keeps alerts on subscribed calendar feeds.
 - The free Apple ID's 7-day expiry blocks a clean multi-week retention test without the paid program.
-- It's untested whether TikTok, YouTube and Instagram notifications about the user's own posted videos bring people back to Outpost.
+- It's untested whether TikTok, YouTube and Instagram notifications about the user's own posted videos bring people back to Capypost.
 - Candle 2.0 shipped on 12 Nov 2026 with a shared pet. There's no data on it yet.
 - The team needs to decide whether local notifications count as "push." They are a different system, but they still interrupt the user.
