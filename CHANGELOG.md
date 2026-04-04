@@ -53,3 +53,4 @@
 - slow start observed while testing
 - double-check release checklist behavior
 - edge case observed while testing
+- double-check the retry path behavior
