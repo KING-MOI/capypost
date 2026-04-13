@@ -39,3 +39,4 @@
 - considered ci caching; parked for now
 - follow up on ci caching
 - double-check config defaults behavior
+- edge case observed while testing
