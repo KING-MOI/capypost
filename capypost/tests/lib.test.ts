@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { dayOf, shiftDay, weekdayOf } from "../convex/lib";
+import { dayOf, shiftDay, streakOf, weekdayOf } from "../convex/lib";
 
 describe("shiftDay", () => {
   test("moves across month, year and leap-day boundaries", () => {
@@ -33,5 +33,22 @@ describe("dayOf", () => {
     expect(dayOf(at, "UTC")).toBe("2026-11-17");
     expect(dayOf(at, "America/Los_Angeles")).toBe("2026-11-16");
     expect(dayOf(at, "Asia/Tokyo")).toBe("2026-11-17");
+  });
+});
+
+describe("streakOf", () => {
+  const today = "2026-11-17";
+  const on = (...back: number[]) => (day: string) => back.some(n => shiftDay(today, -n) === day);
+
+  test("counts consecutive active days back from today", () => {
+    expect(streakOf(today, on(0, 1, 2), 0)).toEqual({ streak: 3, frozen: [], freezesLeft: 0 });
+  });
+
+  test("an empty today does not break yesterday's streak", () => {
+    expect(streakOf(today, on(1, 2), 0).streak).toBe(2);
+  });
+
+  test("no activity at all is a zero streak", () => {
+    expect(streakOf(today, () => false, 2)).toEqual({ streak: 0, frozen: [], freezesLeft: 2 });
   });
 });
