@@ -67,3 +67,4 @@
 - edge case observed while testing
 - follow up on error messages
 - follow up on link checker
+- considered release checklist; parked for now
