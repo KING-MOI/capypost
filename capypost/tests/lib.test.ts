@@ -48,6 +48,14 @@ describe("streakOf", () => {
     expect(streakOf(today, on(1, 2), 0).streak).toBe(2);
   });
 
+  test("a freeze bridges one missed day once an earlier active day carries the streak", () => {
+    expect(streakOf(today, on(0, 1, 3), 1)).toEqual({ streak: 3, frozen: [shiftDay(today, -2)], freezesLeft: 0 });
+  });
+
+  test("an unused freeze stays when the gap is wider than the allowance", () => {
+    expect(streakOf(today, on(0, 1, 4), 1)).toEqual({ streak: 2, frozen: [], freezesLeft: 1 });
+  });
+
   test("no activity at all is a zero streak", () => {
     expect(streakOf(today, () => false, 2)).toEqual({ streak: 0, frozen: [], freezesLeft: 2 });
   });
