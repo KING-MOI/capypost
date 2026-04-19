@@ -74,3 +74,4 @@
 - follow up on link checker
 - double-check ci caching behavior
 - follow up on the macOS build
+- follow up on cleanup logic
