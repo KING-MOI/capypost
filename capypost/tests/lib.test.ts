@@ -1,5 +1,5 @@
-import { describe, expect, test } from "vitest";
-import { dayOf, shiftDay, streakOf, weekdayOf } from "../convex/lib";
+import { afterEach, describe, expect, test, vi } from "vitest";
+import { dayOf, requireWorker, shiftDay, streakOf, weekdayOf } from "../convex/lib";
 
 describe("shiftDay", () => {
   test("moves across month, year and leap-day boundaries", () => {
@@ -58,5 +58,20 @@ describe("streakOf", () => {
 
   test("no activity at all is a zero streak", () => {
     expect(streakOf(today, () => false, 2)).toEqual({ streak: 0, frozen: [], freezesLeft: 2 });
+  });
+});
+
+describe("requireWorker", () => {
+  afterEach(() => { vi.unstubAllEnvs(); });
+
+  test("accepts only the configured secret", () => {
+    vi.stubEnv("WORKER_SECRET", "s3cret");
+    expect(() => requireWorker("s3cret")).not.toThrow();
+    expect(() => requireWorker("wrong")).toThrow("bad worker key");
+  });
+
+  test("refuses every key while no secret is set", () => {
+    vi.stubEnv("WORKER_SECRET", "");
+    expect(() => requireWorker("")).toThrow("bad worker key");
   });
 });
