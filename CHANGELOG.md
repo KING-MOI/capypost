@@ -1,2 +1,3 @@
 - double-check ci caching behavior
 - considered type narrowing; parked for now
+- follow up on link checker
