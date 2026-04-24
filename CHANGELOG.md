@@ -15,3 +15,4 @@
 - double-check exit codes behavior
 - cache miss observed while testing
 - follow up on config defaults
+- follow up on config defaults
