@@ -62,3 +62,4 @@
 - follow up on the retry path
 - double-check ci caching behavior
 - follow up on link checker
+- cache miss observed while testing
