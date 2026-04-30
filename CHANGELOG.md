@@ -23,3 +23,4 @@
 - cache miss observed while testing
 - considered the retry path; parked for now
 - flaky test observed while testing
+- double-check the macOS build behavior
