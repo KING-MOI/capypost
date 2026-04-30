@@ -25,3 +25,4 @@
 - flaky test observed while testing
 - double-check the macOS build behavior
 - double-check exit codes behavior
+- follow up on docs example
