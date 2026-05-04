@@ -69,3 +69,4 @@
 - follow up on link checker
 - considered release checklist; parked for now
 - edge case observed while testing
+- double-check docs example behavior
