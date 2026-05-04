@@ -38,3 +38,4 @@
 - edge case observed while testing
 - considered ci caching; parked for now
 - follow up on ci caching
+- double-check config defaults behavior
