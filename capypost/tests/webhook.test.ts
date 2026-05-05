@@ -39,3 +39,17 @@ describe("verifyWebhook", () => {
     expect(await verifyWebhook(body, headers("msg_1", ts, `v1,${sig}`), SECRET)).toBe(false);
   });
 });
+
+describe("fromPayment", () => {
+  test("maps Whop's payment fields, preferring total over usd_total", () => {
+    expect(fromPayment({
+      id: 123, product_id: "prod_1", checkout_configuration_id: "ch_1",
+      total: { amount: "9.00" }, usd_total: { amount: "9.10" }, amount_after_fees: { amount: "8.43" },
+    })).toEqual({ paymentId: "123", productId: "prod_1", checkoutId: "ch_1", total: "9.00", net: "8.43" });
+  });
+
+  test("drops empty or non-string fields and falls back to usd_total", () => {
+    expect(fromPayment({ id: "pay_1", product_id: "", usd_total: { amount: "9.10" }, amount_after_fees: { amount: 8 } }))
+      .toEqual({ paymentId: "pay_1", productId: undefined, checkoutId: undefined, total: "9.10", net: undefined });
+  });
+});
