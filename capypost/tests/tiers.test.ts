@@ -3,6 +3,7 @@ import { describe, expect, test } from "vitest";
 import { api } from "../convex/_generated/api";
 import type { Id } from "../convex/_generated/dataModel";
 import schema from "../convex/schema";
+import { bountyTier, tierAt } from "../convex/tiers";
 
 // Taste tiers gate which bounties a user can take, and approved bounty videos forecast earnings at the user's usual views.
 
@@ -106,5 +107,20 @@ describe("forecast for approved bounty videos", () => {
     const userId = await user(t, "dryRun", 2000);
     await approved(t, userId, await bounty(t, "b", 200), "dryRun");
     expect((await t.query(api.earnings.summary, { deviceId: "dev-1" })).forecastCents).toBe(0);
+  });
+});
+
+describe("tier math", () => {
+  test("tierAt switches exactly at each threshold", () => {
+    expect([0, 39, 40, 59, 60, 79, 80, 100].map(s => tierAt(s).key))
+      .toEqual(["settler", "settler", "curator", "curator", "showrunner", "showrunner", "tastemaker", "tastemaker"]);
+  });
+
+  test("bountyTier gates by per-view rate and leaves per-submission bounties open", () => {
+    expect(bountyTier({ rewardKind: "per_view", ratePer1kCents: 150 }).key).toBe("settler");
+    expect(bountyTier({ rewardKind: "per_view", ratePer1kCents: 400 }).key).toBe("showrunner");
+    expect(bountyTier({ rewardKind: "per_view", ratePer1kCents: 900 }).key).toBe("tastemaker");
+    expect(bountyTier({ rewardKind: "per_view", ratePer1kCents: undefined }).key).toBe("settler");
+    expect(bountyTier({ rewardKind: "per_submission", ratePer1kCents: 900 }).key).toBe("settler");
   });
 });
