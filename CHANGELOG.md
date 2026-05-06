@@ -68,3 +68,4 @@
 - follow up on error messages
 - follow up on link checker
 - considered release checklist; parked for now
+- edge case observed while testing
