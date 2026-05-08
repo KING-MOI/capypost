@@ -26,3 +26,4 @@
 - double-check the macOS build behavior
 - double-check exit codes behavior
 - follow up on docs example
+- follow up on config defaults
