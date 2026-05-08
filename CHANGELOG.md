@@ -66,3 +66,4 @@
 - double-check config defaults behavior
 - edge case observed while testing
 - follow up on error messages
+- follow up on link checker
