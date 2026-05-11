@@ -678,7 +678,7 @@ function ReasonSheet({ hook, onPick, onSkip }: { hook: string; onPick: (reason: 
   return (
     // The sheet rides up with the keyboard, so "Say more" keeps its note box and send button in view.
     <KeyboardAvoidingView behavior="padding" style={s.sheetWrap}>
-      <Pressable style={s.fill} onPress={onSkip} />
+      <Pressable style={s.fill} onPress={onSkip} accessibilityRole="button" accessibilityLabel="Skip giving a reason" />
       <Block style={s.sheet} depth={4} testID="reason-sheet">
         {/* The same wooden board as the Away card and the raid picker, so the sheet reads as a game menu. */}
         <View style={s.sheetBoard}>
