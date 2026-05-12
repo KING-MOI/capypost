@@ -549,7 +549,7 @@ function Picker({ device, onClose }: { device: string; onClose: () => void }) {
   const goal = [money(SHOP_GOAL / 2), "", money(SHOP_GOAL)];
   return (
     <View style={s.sheetWrap}>
-      <Pressable style={s.fill} onPress={onClose} />
+      <Pressable style={s.fill} onPress={onClose} accessibilityRole="button" accessibilityLabel="Close raid picker" />
       <Block bevel="parch" style={[s.sheet, { paddingBottom: 40 }]} testID="raid-picker">
         {/* The same wooden board as the Away card, so the picker reads as a game menu, with a close button on it. */}
         <View style={s.pickBoard}>
