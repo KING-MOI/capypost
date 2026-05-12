@@ -50,3 +50,4 @@
 - considered the retry path; parked for now
 - considered the macOS build; parked for now
 - considered config defaults; parked for now
+- slow start observed while testing
