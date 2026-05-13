@@ -237,7 +237,8 @@ export function TierUp({ name, provisional, onDone }: { name: string; provisiona
   const style = useAnimatedStyle(() => ({ transform: [{ scale: scale.value }] }));
   return (
     <Modal transparent animationType="fade" visible>
-      <Pressable style={s.tierScrim} onPress={onDone} testID="tier-up">
+      <Pressable style={s.tierScrim} onPress={onDone} testID="tier-up" accessibilityRole="button"
+        accessibilityLabel={`Tier up: ${name}${provisional ? ", provisional" : ""}. Tap to continue`}>
         <View style={s.burstMid}>{BITS.map((b, i) => <Bit key={i} {...b} color={GOLDS[i % 3]} dist={b.dist * 1.7} />)}</View>
         <Animated.View style={[s.streakWrap, style]}>
           <Block bevel="gold" depth={5} lift={4} style={s.streak}>
