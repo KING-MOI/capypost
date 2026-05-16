@@ -36,3 +36,5 @@ jobs:
         run: npx tsc --noEmit -p convex
       - name: Studio worker
         run: node --check studio/worker.mjs
+      - name: Tests
+        run: npm test
