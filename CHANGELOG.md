@@ -31,3 +31,4 @@
 - double-check docs example behavior
 - follow up on release checklist
 - flaky test observed while testing
+- follow up on type narrowing
