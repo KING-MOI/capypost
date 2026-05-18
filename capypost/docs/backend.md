@@ -284,6 +284,6 @@ Everything else is scheduled by the code that needs it:
 
 ## Typecheck
 
-CI (`.github/workflows/typecheck.yml`) runs on pull requests that touch `capypost/`. It type-checks the app with `npx tsc --noEmit`, the Convex functions with `npx tsc --noEmit -p convex`, and checks the worker's syntax with `node --check studio/worker.mjs`.
+CI (`.github/workflows/typecheck.yml`) runs on pull requests that touch `capypost/`. It type-checks the app with `npx tsc --noEmit`, the Convex functions with `npx tsc --noEmit -p convex`, checks the worker's syntax with `node --check studio/worker.mjs`, and runs `npm test`.
 
-`npm test` runs the convex-test suite in `tests/` (Whop OAuth, refresh rotation, auto-submit and poll, posting modes) against a mocked `fetch`. It never reaches Whop. CI doesn't run it yet.
+`npm test` runs the convex-test suite in `tests/` (Whop OAuth, refresh rotation, auto-submit and poll, posting modes) against a mocked `fetch`. It never reaches Whop. CI runs it on every pull request.

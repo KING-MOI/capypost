@@ -107,9 +107,10 @@ The home-screen widget ("Capypost") is part of the build. Add it from the home s
 npx tsc --noEmit             # app
 npx tsc --noEmit -p convex   # Convex functions
 node --check studio/worker.mjs
+npm test                     # convex-test suite, mocked fetch
 ```
 
-CI runs the same three on every pull request that touches `capypost/`. Revyl also builds those pull requests for the iOS simulator (iPhone only), runs a proof-of-changes agent and the `capypost-regression` workflow on a cloud iPhone as a dry-run test user, and posts one verdict comment. Pull requests that touch only `convex/`, `studio/`, `docs/` or Markdown are skipped. To re-run, push a commit (an empty one works) or have a collaborator comment `@revyl rerun <guidance>`; Revyl ignores the comment from bots. See [docs/testing.md](docs/testing.md).
+`npm run typecheck` runs the first three in one go. CI runs all four on every pull request that touches `capypost/`. Revyl also builds those pull requests for the iOS simulator (iPhone only), runs a proof-of-changes agent and the `capypost-regression` workflow on a cloud iPhone as a dry-run test user, and posts one verdict comment. Pull requests that touch only `convex/`, `studio/`, `docs/` or Markdown are skipped. To re-run, push a commit (an empty one works) or have a collaborator comment `@revyl rerun <guidance>`; Revyl ignores the comment from bots. See [docs/testing.md](docs/testing.md).
 
 ## The studio worker
 

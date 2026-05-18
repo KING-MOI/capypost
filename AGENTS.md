@@ -67,14 +67,15 @@ npm ci                              # install
 npx tsc --noEmit                    # typecheck app        (CI)
 npx tsc --noEmit -p convex          # typecheck Convex     (CI)
 node --check studio/worker.mjs      # syntax-check worker  (CI)
-npm test                            # convex-test suite in tests/, mocked fetch
+npm test                            # convex-test suite in tests/, mocked fetch (CI)
+npm run typecheck                   # the three typecheck steps above in one go
 npx convex dev                      # push functions + watch; needs a Convex login or deploy key in env
 npx expo run:ios                    # build the dev client (macOS + Xcode); later just `npx expo start`
 while true; do node studio/worker.mjs; sleep 3; done   # studio worker, laptop only
 ```
 
-CI (`.github/workflows/typecheck.yml`) runs the three checks on PRs touching `capypost/`. `npm test` runs locally
-(not in CI yet). There is no lint.
+CI (`.github/workflows/typecheck.yml`) runs the three checks and `npm test` on PRs touching `capypost/`. There is
+no lint.
 
 ## Hard rules
 
@@ -106,7 +107,7 @@ CI (`.github/workflows/typecheck.yml`) runs the three checks on PRs touching `ca
 
 ## Definition of done
 
-- The three CI checks pass locally and on the PR.
+- The three CI checks and `npm test` pass locally and on the PR.
 - Docs updated when behavior changes (`capypost/docs/*`, this file's status table).
 - PR body says what changed and what was actually verified (and what wasn't, e.g. "not run on device").
 
