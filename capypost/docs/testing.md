@@ -113,3 +113,22 @@ Run it again whenever the proof user's Feed runs low.
   or submit to a real bounty from a test.
 - Keep the `testID`s on screens; tests and proofs lean on them.
 - Non-phone checks still run in CI: `npx tsc --noEmit`, `npx tsc --noEmit -p convex`, `node --check studio/worker.mjs`.
+
+## Unit and backend tests
+
+Device runs prove the screens. The Convex logic is covered by `npm test` (vitest with `convex-test`), which CI runs on
+every pull request that touches `capypost/`. `fetch` is stubbed in every suite, so no test reaches Zernio or Whop.
+
+| File | Covers |
+|---|---|
+| `tests/lib.test.ts` | Day math (`shiftDay`, `dayOf`, `weekdayOf`), streaks and freezes, `requireWorker` |
+| `tests/pace.test.ts` | `nextSlot`: the two-post burst, the per-day cap |
+| `tests/labels.test.ts` | Bounty reward labels and shop raid stars |
+| `tests/webhook.test.ts` | Whop webhook signatures, the replay window, payment field mapping |
+| `tests/ensureUser.test.ts` | Device id and time zone checks, the `MAX_USERS` cap |
+| `tests/tiers.test.ts` | Tier thresholds, tier-locked Take, score effects, forecasts |
+| `tests/whop.test.ts` | Whop OAuth, refresh rotation, Bounty auto-submit and poll, posting modes |
+| `tests/demoMode.test.ts` | Demo posting mode and the seeded demo user |
+| `tests/demoPrep.test.ts` | `admin:demoPrep` Feed ordering |
+
+`npm run test:watch` reruns the suite as files change.
