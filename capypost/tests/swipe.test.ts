@@ -43,4 +43,21 @@ describe("feed:swipe left", () => {
     expect(remake?.remakeNote).toBe("x".repeat(280));
   });
 
+  test("a plain skip makes no remake and frees the file", async () => {
+    const t = convexTest(schema, modules);
+    const userId = await user(t);
+    const v = await video(t, userId, 1);
+    await t.mutation(api.feed.swipe, { deviceId: "phone", videoId: v, dir: "left", dwellMs: 0 });
+    const rows = await t.run(ctx => ctx.db.query("videos").collect());
+    expect(rows).toHaveLength(1);
+    expect(rows[0].status).toBe("left");
+    expect(rows[0].storageId).toBeUndefined();
+  });
+
+  test("a video that is no longer ready is ignored", async () => {
+    const t = convexTest(schema, modules);
+    const userId = await user(t);
+    const v = await video(t, userId, 1, { status: "right" });
+    expect(await t.mutation(api.feed.swipe, { deviceId: "phone", videoId: v, dir: "left", dwellMs: 0 })).toEqual({ ok: false });
+  });
 });
