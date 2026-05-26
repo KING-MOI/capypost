@@ -61,3 +61,16 @@ describe("feed:swipe left", () => {
     expect(await t.mutation(api.feed.swipe, { deviceId: "phone", videoId: v, dir: "left", dwellMs: 0 })).toEqual({ ok: false });
   });
 });
+
+describe("feed:swipe right", () => {
+  test("holds one post per platform in the user's mode while the queue is paused, and counts the approval", async () => {
+    const t = convexTest(schema, modules);
+    const userId = await user(t);
+    const v = await video(t, userId, 1);
+    expect(await t.mutation(api.feed.swipe, { deviceId: "phone", videoId: v, dir: "right", dwellMs: 1000 })).toEqual({ ok: true });
+    const posts = await t.run(ctx => ctx.db.query("posts").collect());
+    expect(posts.map(p => [p.platform, p.status, p.mode]).sort()).toEqual([["instagram", "held", "dryRun"], ["youtube", "held", "dryRun"]]);
+    const days = await t.run(ctx => ctx.db.query("days").collect());
+    expect(days.map(d => d.approved)).toEqual([1]);
+  });
+});
