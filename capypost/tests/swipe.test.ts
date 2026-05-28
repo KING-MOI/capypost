@@ -54,6 +54,15 @@ describe("feed:swipe left", () => {
     expect(rows[0].storageId).toBeUndefined();
   });
 
+  test("a skipped library video keeps its shared file", async () => {
+    const t = convexTest(schema, modules);
+    const userId = await user(t);
+    const v = await video(t, userId, 1, { pregenerated: true });
+    await t.mutation(api.feed.swipe, { deviceId: "phone", videoId: v, dir: "left", dwellMs: 0 });
+    const row = await t.run(ctx => ctx.db.get(v));
+    expect(row?.storageId).toBeDefined();
+  });
+
   test("a video that is no longer ready is ignored", async () => {
     const t = convexTest(schema, modules);
     const userId = await user(t);
