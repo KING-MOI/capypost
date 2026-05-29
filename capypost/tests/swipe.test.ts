@@ -83,3 +83,26 @@ describe("feed:swipe right", () => {
     expect(days.map(d => d.approved)).toEqual([1]);
   });
 });
+
+describe("feed:swipe guards", () => {
+  test("clamps the recorded dwell time to ten minutes and never below zero", async () => {
+    const t = convexTest(schema, modules);
+    const userId = await user(t);
+    const a = await video(t, userId, 1);
+    const b = await video(t, userId, 2);
+    await t.mutation(api.feed.swipe, { deviceId: "phone", videoId: a, dir: "left", dwellMs: 9_999_999 });
+    await t.mutation(api.feed.swipe, { deviceId: "phone", videoId: b, dir: "left", dwellMs: -5 });
+    const swipes = await t.run(ctx => ctx.db.query("swipes").collect());
+    expect(swipes.map(s => s.dwellMs)).toEqual([600_000, 0]);
+  });
+
+  test("refuses another device's video", async () => {
+    const t = convexTest(schema, modules);
+    const userId = await user(t);
+    const v = await video(t, userId, 1);
+    await t.run(ctx => ctx.db.insert("users", {
+      deviceId: "other", niche: "test", tz: "UTC", freezesLeft: 0, postingMode: "dryRun", pacePerDay: 12, drainPaused: true, createdAt: 0,
+    }));
+    await expect(t.mutation(api.feed.swipe, { deviceId: "other", videoId: v, dir: "right", dwellMs: 0 })).rejects.toThrow("not your video");
+  });
+});
