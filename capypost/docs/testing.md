@@ -127,6 +127,7 @@ every pull request that touches `capypost/`. `fetch` is stubbed in every suite, 
 | `tests/webhook.test.ts` | Whop webhook signatures, the replay window, payment field mapping |
 | `tests/ensureUser.test.ts` | Device id and time zone checks, the `MAX_USERS` cap |
 | `tests/swipe.test.ts` | Left swipes and remakes, plain skips, right swipes holding posts, dwell clamp, ownership |
+| `tests/earnings.test.ts` | Empty and calibrating taste scores on the scoreboard |
 | `tests/tiers.test.ts` | Tier thresholds, tier-locked Take, score effects, forecasts |
 | `tests/whop.test.ts` | Whop OAuth, refresh rotation, Bounty auto-submit and poll, posting modes |
 | `tests/demoMode.test.ts` | Demo posting mode and the seeded demo user |
