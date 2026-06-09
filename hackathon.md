@@ -4,7 +4,7 @@
 - **Event:** YC Consumer Mobile Hackathon
 - **What it does:** An iOS app where a laptop studio makes short videos for Whop brand bounties, you swipe to post them to YouTube and Instagram or send them back, and a taste score from view counts unlocks higher-paying bounties.
 - **Live app:** not deployed
-- **Repo:** https://github.com/KING-MOI/capypost-capy-yc
+- **Repo:** https://github.com/KING-MOI/capypost
 - **Frontend:** not deployed
 - **Convex deployment:** https://patient-flamingo-104.convex.cloud
 - **Components:** none
